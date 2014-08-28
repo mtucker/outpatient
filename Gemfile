@@ -40,6 +40,12 @@ gem 'devise'
 # 12 Factor recommended by Heroku
 gem 'rails_12factor', group: :production
 
+# Thoughtbot bourbon front-end things
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
