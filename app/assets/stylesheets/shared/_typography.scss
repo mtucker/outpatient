@@ -1,0 +1,9 @@
+.logotype {
+  font-family: $helvetica;
+  font-weight: 800;
+
+  em {
+    color: darken($base-background-color, 20);
+    font-style: normal;
+  }
+}
