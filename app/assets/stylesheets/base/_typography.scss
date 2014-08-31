@@ -85,3 +85,14 @@ cite {
     content: '\2014 \00A0';
   }
 }
+
+
+.logotype {
+  font-family: $helvetica;
+  font-weight: 800;
+
+  em {
+    color: darken($base-background-color, 20);
+    font-style: normal;
+  }
+}
