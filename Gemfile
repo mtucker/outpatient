@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 
 # Devise for user authentication
 gem 'devise'
+gem 'simple_form'
 
 # 12 Factor recommended by Heroku
 gem 'rails_12factor', group: :production
