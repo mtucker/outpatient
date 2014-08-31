@@ -23,15 +23,21 @@ $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
 
 // Background Color
-$base-background-color: $orange;
+$base-background-color: white;
+$front-of-house-background-color: $orange;
+$navigation-background-color: $orange;
 
 // Font Colors
-$base-font-color: white;
-$base-accent-color: white;
+$base-font-color: $dark-gray;
+$base-accent-color: $dark-orange;
+$front-of-house-font-color: white;
+$front-of-house-accent-color: white;
 
 // Link Colors
 $base-link-color: $base-accent-color;
 $hover-link-color: $dark-orange;
+$front-of-house-link-color: white;
+$front-of-house-hover-link-color: $hover-link-color;
 $base-button-color: $hover-link-color;
 $hover-button-color: $base-link-color;
 $base-button-text-color: $base-font-color;

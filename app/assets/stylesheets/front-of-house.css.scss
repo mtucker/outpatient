@@ -1,0 +1,31 @@
+
+body.front-of-house,
+.navigation {
+
+  background-color: $front-of-house-background-color;
+  color: $front-of-house-font-color;
+
+  a{
+    color: $front-of-house-link-color;
+
+    &:hover {
+
+        color: $front-of-house-hover-link-color;
+
+    }
+  }
+
+  button,
+  input[type="submit"],
+  a.button {
+
+    &:hover {
+
+      background-color: white;
+      color: $front-of-house-hover-link-color;
+
+    }
+
+  }
+
+}
