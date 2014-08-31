@@ -11,10 +11,12 @@ select {
   display: block;
   font-family: $form-font-family;
   font-size: $form-font-size;
+  color: $form-color;
 }
 
 label {
   font-weight: bold;
+  color: $base-font-color;
   margin-bottom: $base-line-height / 4;
 
   &.required:after {
@@ -38,7 +40,7 @@ select[multiple=multiple] {
   font-family: $form-font-family;
   font-size: $form-font-size;
   margin-bottom: $base-line-height / 2;
-  padding: ($base-line-height / 3) ($base-line-height / 3);
+  padding: ($base-line-height / 1.5) ($base-line-height / 1.5);
   width: 100%;
 
   &:hover {
@@ -50,6 +52,11 @@ select[multiple=multiple] {
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
+
+  @include placeholder {
+    font-weight: 300;
+  }
+
 }
 
 textarea {
@@ -75,4 +82,23 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-line-height;
+}
+
+.solo-form {
+
+  h2 {
+    margin-bottom: $base-line-height / 3;
+    text-align: center;
+  }
+
+  input[type="submit"]{
+    width: 100%;
+  }
+
+  .other-actions {
+    margin-top: $base-line-height;
+    text-align: center;
+    line-height: $base-line-height * 1.5;
+  }
+
 }
