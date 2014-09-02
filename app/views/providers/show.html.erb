@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+Provider</br>
 
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+<ul>
+  <li>ID: <%= @provider.id %></li>
+  <li>Name: <%= @provider.name %></li>
+  <li>Email: <%= @provider.email %></li>
+  <li>Phone: <%= @provider.phone %></li>
+  <li>Zip: <%= @provider.zip_code %></li>
+</ul>
