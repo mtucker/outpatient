@@ -19,6 +19,8 @@ body.front-of-house,
   input[type="submit"],
   a.button {
 
+    color: $front-of-house-link-color;
+    
     &:hover {
 
       background-color: white;
