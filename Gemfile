@@ -20,6 +20,7 @@ group :production do
 end
 
 group :development do
+  gem 'guard-rspec', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
 end
@@ -34,7 +35,6 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'capybara'
-  gem 'guard-rspec'
   gem 'launchy'
 end
 
