@@ -78,6 +78,7 @@ RSpec.configure do |config|
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
+  require 'capybara/rspec'
   config.include Devise::TestHelpers, :type => :controller
   Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
 end
