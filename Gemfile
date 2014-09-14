@@ -24,11 +24,17 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
-# Use sqlite3 in dev, and Postgres on prod
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+end
+
+group :test do
   gem 'database_cleaner'
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
