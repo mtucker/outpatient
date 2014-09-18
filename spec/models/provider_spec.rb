@@ -24,9 +24,14 @@ RSpec.describe Provider, :type => :model do
       )
     end
 
-    it 'requires a password' do
+    it 'requires a strong password' do
       expect(provider).to have_valid(:password).when(Faker::Internet.password)
-      expect(provider).not_to have_valid(:password).when(nil)
+      expect(provider).not_to have_valid(:password).when(
+        nil,
+        '',
+        ' ',
+        'weak'
+      )
     end
 
     it 'requires matching password and password confirmation' do
@@ -54,6 +59,17 @@ RSpec.describe Provider, :type => :model do
           '',
           ' '
       )
+    end
+
+  end
+
+  context 'being created' do
+
+    it 'is a User of type "Provider"' do
+
+      user = create :provider
+      expect(user.type).to eq 'Provider'
+
     end
 
   end
