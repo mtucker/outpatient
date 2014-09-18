@@ -11,6 +11,9 @@ FactoryGirl.define do
     password = Faker::Internet.password
     f.password { password }
     f.password_confirmation { password }
+  end
 
+  factory :invalid_provider, parent: :provider do |f|
+    f.name nil
   end
 end
