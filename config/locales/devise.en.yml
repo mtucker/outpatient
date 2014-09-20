@@ -57,3 +57,9 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+
+en:
+  devise:
+    providers_registrations:
+      provider:
+        signed_up: 'Welcome! You have signed up successfully.'
