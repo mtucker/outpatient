@@ -26,12 +26,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry'
-  gem "pry-byebug"
+  gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'rspec-rails'
+  gem 'sqlite3'
 end
 
 group :test do
