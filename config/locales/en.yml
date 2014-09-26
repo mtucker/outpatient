@@ -21,3 +21,27 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Please specify your name."
+            email:
+              blank: "Please specify an email address."
+              taken: "This email address is already registered."
+              invalid: "Please specify a valid email address."
+            password:
+              blank: "Please specify a password."
+              confirmation: "Passwords do not match."
+              too_short: "Password must be at least 8 characters."
+            password_confirmation:
+              blank: "Please confirm your password."
+              confirmation: "Passwords do not match."
+            zip_code:
+              blank: "Please specify your zip code."
+              invalid: "Please specify a valid zip code."
+            phone:
+              blank: "Please specify your phone number."
+              invalid: "Please specify a valid phone number."
