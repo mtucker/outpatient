@@ -83,22 +83,3 @@ select {
   max-width: 100%;
   margin-bottom: $base-line-height;
 }
-
-.solo-form {
-
-  h2 {
-    margin-bottom: $base-line-height / 3;
-    text-align: center;
-  }
-
-  input[type="submit"]{
-    width: 100%;
-  }
-
-  .other-actions {
-    margin-top: $base-line-height;
-    text-align: center;
-    line-height: $base-line-height * 1.5;
-  }
-
-}

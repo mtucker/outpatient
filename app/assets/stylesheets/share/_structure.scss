@@ -3,8 +3,3 @@
   padding-top: 5em;
   @include outer-container;
 }
-
-.solo-form{
-  @include span-columns(4);
-  @include shift(4);
-}

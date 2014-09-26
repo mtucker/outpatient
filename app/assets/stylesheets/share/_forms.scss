@@ -1,0 +1,32 @@
+.solo-form {
+
+  @include span-columns(4);
+  @include shift(4);
+
+  h2 {
+    margin-bottom: $base-line-height / 3;
+    text-align: center;
+  }
+
+  .input {
+    margin-bottom: $base-line-height / 2;
+  }
+
+  input {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .other-actions {
+    margin-top: $base-line-height;
+    text-align: center;
+    line-height: $base-line-height * 1.5;
+  }
+
+}
+
+.field_with_errors input {
+  border-width: 3px;
+  border-color: $form-border-color-focus;
+  box-shadow: $form-box-shadow-focus;
+}
