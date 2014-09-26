@@ -20,7 +20,9 @@ group :production do
 end
 
 group :development do
-  gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
+  gem 'guard-rspec',      require: false
+  gem 'guard-sass'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
