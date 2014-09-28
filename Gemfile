@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'jquery-rails'
 gem 'neat'
+gem 'pg'
 gem 'rails'
 gem 'refills'
 gem 'sass-rails', '~> 4.0.3'
@@ -15,7 +16,6 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -28,12 +28,12 @@ group :development do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
-  gem 'sqlite3'
 end
 
 group :test do
