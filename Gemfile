@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'factory_girl_rails'
 
 group :production do
   gem 'rails_12factor'
@@ -30,7 +31,6 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
