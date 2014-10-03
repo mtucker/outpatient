@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-
+gem 'activeadmin', github: 'activeadmin'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
