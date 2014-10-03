@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'faker'
 gem 'factory_girl_rails'
 
 group :production do
@@ -39,7 +40,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
 end
