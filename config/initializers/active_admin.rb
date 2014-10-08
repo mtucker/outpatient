@@ -248,7 +248,7 @@ ActiveAdmin.setup do |config|
         resource_sym = config.resource_name.singular.to_sym
         controller do
           define_method :permitted_params do
-            params.permit :utf8, :authenticity_token, :commit,
+            params.permit :utf8, :authenticity_token, :commit, :_method, :id,
                           resource_sym =>
                           block ? instance_exec(&block) : args
           end
