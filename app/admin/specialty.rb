@@ -1,4 +1,4 @@
-ActiveAdmin.register Provider do
+ActiveAdmin.register Specialty do
 
 
   # See permitted parameters documentation:
@@ -13,19 +13,6 @@ ActiveAdmin.register Provider do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-
-  index do
-    selectable_column
-    column :id
-    column :name
-    column :specialty 
-    column :email
-    column :zip_code
-    column :phone
-    column :last_sign_in_at
-    column :sign_in_count
-    actions
-  end
 
 
 end
