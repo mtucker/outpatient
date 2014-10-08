@@ -72,6 +72,48 @@ RSpec.describe Provider, :type => :model do
 
     end
 
+    it 'is not active' do
+
+      provider = create :provider
+      expect(provider.is_active?).to eq false
+
+    end
+
+    it 'explicitly activated' do
+
+      provider = create :active_provider
+      expect(provider.is_active?).to eq true
+
+    end
+
+  end
+
+  context 'being activated' do
+
+    it 'updates activated_at' do
+
+      provider = create :provider
+      provider.is_active = true
+      provider.save
+
+      expect(provider.activated_at).not_to be_nil
+
+    end
+
+  end
+
+  context 'being deactivated' do
+
+    it 'updates deactivated_at' do
+
+      provider = create :active_provider
+      provider.is_active = false
+      provider.save
+
+      expect(provider.deactivated_at).not_to be_nil
+
+    end
+
   end
 
 end
