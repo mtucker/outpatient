@@ -19,8 +19,10 @@ ActiveAdmin.register Provider do
     f.inputs do
       f.input :name
       f.input :email
-      f.input :password
-      f.input :password_confirmation
+      if f.object.new_record?
+          f.input :password
+          f.input :password_confirmation
+      end
       f.input :specialty
       f.input :phone
       f.input :zip_code
