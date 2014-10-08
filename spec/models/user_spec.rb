@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
 
+  context 'being created' do
+
+    it 'is active' do
+
+      provider = create :user
+      expect(provider.is_active?).to eq true
+
+    end
+
+  end
+
   context 'being deleted' do
 
     let(:user) { create :user }
