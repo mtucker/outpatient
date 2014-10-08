@@ -1,10 +1,11 @@
 ActiveAdmin.register Provider do
 
-  permit_params :name, :email, :password, :password_confirmation, :specialty_id, :phone, :zip_code
+  permit_params :name, :email, :password, :password_confirmation, :specialty_id, :is_active, :phone, :zip_code
 
   filter :name
   filter :email
   filter :specialty
+  filter :is_active
   filter :zip_code
   filter :phone
   filter :sign_in_count
@@ -14,8 +15,9 @@ ActiveAdmin.register Provider do
     selectable_column
     column :id
     column :name
-    column :specialty 
     column :email
+    column :specialty
+    column :is_active
     column :zip_code
     column :phone
     column :sign_in_count
@@ -32,11 +34,23 @@ ActiveAdmin.register Provider do
           f.input :password_confirmation
       end
       f.input :specialty
+      f.input :is_active
       f.input :phone
       f.input :zip_code
     end
     f.actions
   end
 
+  show do |p|
+    attributes_table do
+      row :name
+      row :email
+      row :specialty
+      row :is_active
+      row :phone
+      row :zip_code
+    end
+    active_admin_comments
+  end
 
 end
