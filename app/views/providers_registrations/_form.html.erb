@@ -5,5 +5,6 @@
   <%= f.input :password_confirmation, placeholder: "Password confirmation.", label: false %>
   <%= f.input :zip_code, placeholder: "Zip code of your practice.", label: false %>
   <%= f.input :phone, placeholder: "Your phone number.", label: false %>
+  <%= f.association :specialty, placeholder: "Choose your specialty.", label: false, :value_method => :id %>
   <%= f.button :submit, "Sign up" %>
 <% end %>

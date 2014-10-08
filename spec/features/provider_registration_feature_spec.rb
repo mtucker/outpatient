@@ -13,10 +13,19 @@ feature 'Provider Registration' do
     fill_in 'Password confirmation.', :with => provider.password
     fill_in 'Zip code of your practice.', :with => provider.zip_code
     fill_in 'Your phone number.', :with => provider.phone
+    page.select provider.specialty.name, :from => 'Choose your specialty.'
 
     click_button 'Sign up'
 
-    expect(page).to have_text('Welcome! You have signed up successfully.');
+    expect(page).to have_text('Welcome! You have signed up successfully.')
+    expect(page).to have_text('Provider Profile')
+    expect(page).to have_text("ID: #{provider.id}")
+    expect(page).to have_text("Name: #{provider.name}")
+    expect(page).to have_text("Email: #{provider.email}")
+    expect(page).to have_text("Phone: #{provider.phone}")
+    expect(page).to have_text("Zip: #{provider.zip_code}")
+    expect(page).to have_text("Specialty: #{provider.specialty.name}")
+
   end
 
   scenario 'Guest cannot register with invalid information' do
