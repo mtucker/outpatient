@@ -18,17 +18,8 @@ feature 'Login' do
 
   scenario 'Admin logs in' do
 
-    admin = create(:administrator)
-
-    visit '/login'
-
-    fill_in 'Your email address.', :with => admin.email
-    fill_in 'Your password.', :with => admin.password
-
-    click_button 'Sign in'
-
-    expect(page).to have_content("Dashboard")
-
+      admin_logs_in
+      
   end
 
 end
