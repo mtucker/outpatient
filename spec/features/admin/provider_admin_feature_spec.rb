@@ -26,4 +26,19 @@ feature 'Provider Admin' do
 
   end
 
+  scenario 'Admin deletes a Provider' do
+
+    provider = create(:provider)
+
+    admin_logs_in
+
+    visit "/admin/providers/#{provider.id}"
+
+    click_link 'Delete Provider'
+
+    expect{ Provider.find(provider.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    expect(Provider.with_deleted.find(provider.id)).not_to be_nil 
+
+  end
+
 end
