@@ -29,5 +29,9 @@ module Chatmd
                        :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+
+    # Raise errors on unpermitted params in form submissions.
+    config.action_controller.action_on_unpermitted_parameters = :raise
+
   end
 end
