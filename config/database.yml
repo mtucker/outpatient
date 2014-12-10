@@ -1,19 +1,19 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   host: localhost
-  username: outpatient
+  username: chatmd
   password: ENV["DATABASE_PASSWORD"]
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: outpatient_dev
+  database: chatmd_dev
 
 test:
   <<: *default
-  database: outpatient_test
+  database: chatmd_test
 
 production:
   <<: *default
-  database: outpatient_dev
+  database: chatmd_dev
