@@ -22,17 +22,17 @@ RSpec.describe ProvidersRegistrationsController, :type => :controller do
 
   describe "POST #create" do
 
-    # context 'with valid attributes' do
-    #   it 'creates a new provider record in the database' do
-    #     expect{post :create, provider: attributes_for(:provider)}.to change { User.count }.by(1)
-    #   end
-    #
-    #   it 'redirects to the provider profile' do
-    #     post :create, provider: attributes_for(:provider)
-    #     expect(response).to redirect_to Provider.last
-    #   end
-    #
-    # end
+    context 'with valid attributes' do
+      it 'creates a new provider record in the database' do
+        expect{post :create, provider: attributes_for(:provider)}.to change { User.count }.by(1)
+      end
+    
+      it 'redirects to the provider profile' do
+        post :create, provider: attributes_for(:provider)
+        expect(response).to redirect_to Provider.last
+      end
+    
+    end
 
   end
 
