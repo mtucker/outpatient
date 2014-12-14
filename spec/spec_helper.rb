@@ -79,6 +79,7 @@ RSpec.configure do |config|
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
-  config.include Devise::TestHelpers, :type => :controller
   Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 end
