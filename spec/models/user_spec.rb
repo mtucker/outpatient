@@ -6,8 +6,8 @@ RSpec.describe User, :type => :model do
 
     it 'is active' do
 
-      provider = create :user
-      expect(provider.is_active?).to eq true
+      user = create :user
+      expect(user.is_active?).to eq true
 
     end
 
