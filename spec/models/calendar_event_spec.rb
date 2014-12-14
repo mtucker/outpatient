@@ -11,7 +11,7 @@ RSpec.describe CalendarEvent, :type => :model do
       expect(calendar_event).not_to have_valid(:starts_at).when(nil)
     end
 
-    it 'requires an end time' do
+    it 'requires a end time' do
       calendar_event.starts_at = DateTime.now
       expect(calendar_event).to have_valid(:ends_at).when(1.hour.from_now)
       expect(calendar_event).not_to have_valid(:ends_at).when(nil)
@@ -27,17 +27,15 @@ RSpec.describe CalendarEvent, :type => :model do
       expect(calendar_event).not_to have_valid(:ends_at).when('Not a date')
     end
 
-    it 'requires an end time that is after the start time' do
+    it 'requires a end time that is after the start time' do
       calendar_event.starts_at = DateTime.now
       expect(calendar_event).to have_valid(:ends_at).when(1.hour.from_now)
       expect(calendar_event).not_to have_valid(:ends_at).when(1.hour.ago)
     end
 
-
-    it 'requires a valid type' do
-      expect(calendar_event).to have_valid(:type).when('AVAILABLE')
-      expect(calendar_event).not_to have_valid(:type).when(nil)
-      expect(calendar_event).not_to have_valid(:type).when('INVALID_TYPE')
+    it 'requires a user' do
+      expect(calendar_event).to have_valid(:user).when(FactoryGirl.create(:user))
+      expect(calendar_event).not_to have_valid(:user).when(nil)
     end
 
   end
