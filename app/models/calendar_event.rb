@@ -4,7 +4,7 @@ class CalendarEvent < ActiveRecord::Base
 
   validates :starts_at, presence: true, date: true
   validates :ends_at, presence: true, date: {after: :starts_at}
-  validates :type, presence: true, inclusion: { in: ['AVAILABLE', 'APPOINTMENT']}
+  validates :user, presence: true
 
   belongs_to :user
 
