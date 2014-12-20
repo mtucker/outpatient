@@ -21,7 +21,6 @@ RSpec.describe CalendarEventsController, :type => :controller do
         }.to change(CalendarEvent, :count).by(1)
       end
 
-
       it 'assigns a newly created calendar_event as @calendar_event' do
         post :create, calendar_event: FactoryGirl.attributes_for(:calendar_event)
         expect(assigns(:calendar_event)).to be_a(CalendarEvent)
@@ -42,6 +41,7 @@ RSpec.describe CalendarEventsController, :type => :controller do
         user = FactoryGirl.create(:user)
         post :create, calendar_event: FactoryGirl.attributes_for(:calendar_event, user_id: user.id)
         expect(CalendarEvent.last.user).to eql(user)
+        
       end
 
     end
@@ -55,6 +55,15 @@ RSpec.describe CalendarEventsController, :type => :controller do
       it 're-renders the "new" template' do
         post :create, calendar_event: FactoryGirl.attributes_for(:invalid_calendar_event)
         expect(response).to render_template('new')
+      end
+    end
+
+    describe 'with separate start date and time' do
+      it 'correctly saves the starts_at attribute' do
+        calendar_event_attributes = FactoryGirl.attributes_for(:calendar_event_with_separate_date_and_times)
+        puts calendar_event_attributes
+        post :create, calendar_event: calendar_event_attributes 
+        expect(CalendarEvent.last.starts_at.strftime('%Y/%m/%d %I:%M %p')).to eq(calendar_event_attributes[:starts_at_date] + ' ' + calendar_event_attributes[:starts_at_time])
       end
     end
   end

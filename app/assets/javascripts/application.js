@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
+//= require fullcalendar
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
 //= require_tree .

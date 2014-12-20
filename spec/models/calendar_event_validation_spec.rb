@@ -33,6 +33,14 @@ RSpec.describe CalendarEvent, :type => :model do
       expect(calendar_event).not_to have_valid(:ends_at).when(1.hour.ago)
     end
 
+    it 'includes errors for starts_at_date and starts_at_time for invalid starts_at' do
+      calendar_event.valid?
+      expect(calendar_event.errors[:starts_at_date]).to eq(calendar_event.errors[:starts_at])
+      expect(calendar_event.errors[:starts_at_time]).to eq(calendar_event.errors[:starts_at])
+      expect(calendar_event.errors[:ends_at_date]).to eq(calendar_event.errors[:ends_at])
+      expect(calendar_event.errors[:ends_at_time]).to eq(calendar_event.errors[:ends_at])
+    end
+
     it 'requires a user' do
       expect(calendar_event).to have_valid(:user).when(FactoryGirl.create(:user))
       expect(calendar_event).not_to have_valid(:user).when(nil)

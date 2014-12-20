@@ -1,0 +1,14 @@
+<%= simple_form_for(@availability, remote: true, html: {role: :form, 'data-model' => 'availability'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :starts_at_date %>
+    <%= f.input :starts_at_time %>
+    <%= f.input :ends_at_date %>
+    <%= f.input :ends_at_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,10 +1,131 @@
-Provider Profile</br>
+<script>
+  $(document).ready(function() {
+
+      $('#availability_starts_at_date').pickadate({format: 'yyyy/mm/dd'});
+      $('#availability_starts_at_time').pickatime({format: 'h:i A'});
+      $('#availability_ends_at_date').pickadate({format: 'yyyy/mm/dd'});
+      $('#availability_ends_at_time').pickatime({format: 'h:i A'});
+
+      // page is now ready, initialize the calendar...
+
+      $('#calendar').fullCalendar({
+        defaultView: 'agendaWeek',
+        dayClick: function(date, jsEvent, view) {
+
+          $('#availability_starts_at_date').pickadate('picker').set('select', date.format("YYYY/M/D"));
+          $('#availability_starts_at_time').pickatime('picker').set('select', date.format("hh:mm a"));
+
+          $('#availability_ends_at_date').pickadate('picker').set('select', date.format("YYYY/M/D"));
+          $('#availability_ends_at_time').pickatime('picker').set('select', date.add(1, 'hours').format("hh:mm a"));
+
+          $("#modal").click();
+
+        },
+        events: function(start, end, timezone, callback) {
+          console.log(start);
+          console.log(end);
+          $.ajax({
+            url: '/availabilities',
+            dataType: 'json',
+            data: {
+                // our hypothetical feed requires UNIX timestamps
+                start: start.format(),
+                end: end.format()
+            },
+            success: function(json) {
+                var events = [];
+                $(json).each(function() {
+                    events.push({
+                        title: 'Availability',
+                        start: $(this).attr('starts_at'),
+                        end: $(this).attr('ends_at')
+                    });
+                });
+                callback(events);
+            }
+          });
+        }
+      })
+
+  });
+</script>
 
 <ul>
-  <li>ID: <%= @provider.id %></li>
-  <li>Name: <%= @provider.name %></li>
-  <li>Email: <%= @provider.email %></li>
-  <li>Phone: <%= @provider.phone %></li>
-  <li>Zip: <%= @provider.zip_code %></li>
-  <li>Specialty: <%= @provider.specialty.name %></li>
+  <li><%= @provider.name %></li>
 </ul>
+
+<div class="modal">
+  <input class="modal-state" id="modal" type="checkbox" />
+  <div id="event" class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal"></label>
+      <%= render 'availability/form' %>
+    </div>
+  </div>
+</div>
+
+
+<div id='calendar'></div>
+
+<script>
+
+  $(document).ready(function(){
+
+    $.ajaxSetup({
+      dataType: 'json'
+    });
+
+    $(document).bind('ajaxError', 'form#new_availability', function(event, jqxhr, settings, exception){
+
+      // note: jqxhr.responseJSON undefined, parsing responseText instead
+      $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
+
+    });
+
+    $('#new_availability').on('ajax:success', function(e, data, status, xhr){
+
+      // note: jqxhr.responseJSON undefined, parsing responseText instead
+      $(event.data).modal_success( data );
+
+    });
+
+  });
+
+
+  (function($) {
+
+    $.fn.modal_success = function(event){
+      // close modal
+      $("#modal").click();
+
+      // clear error state
+      this.clear_previous_errors();
+
+      $('#calendar').fullCalendar( 'renderEvent', { title: 'Availability', start: event["starts_at"], end: event["ends_at"]});
+    };
+
+    $.fn.render_form_errors = function(errors){
+
+      this.clear_previous_errors();
+      model = this.data('model');
+
+      // show error messages in input form-group help-block
+      $.each(errors, function(field, messages){
+
+        $('.' + model + '_' + field).addClass('field_with_errors');
+        $('.' + model + '_' + field).append("<span class='error'>" + messages.join(' & ') + "</span>");
+          
+      });
+
+    };
+
+    $.fn.clear_previous_errors = function(){
+      $('.form-group.field_with_errors', this).each(function(){
+        $('.help-block', $(this)).html('');
+        $(this).removeClass('field_with_errors');
+      });
+    }
+
+  }(jQuery));
+
+</script>

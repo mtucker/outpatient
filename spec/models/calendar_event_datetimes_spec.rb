@@ -44,42 +44,83 @@ RSpec.describe CalendarEvent, :type => :model do
       CalendarEvent.new
     }
 
-    it 'updates starts_at when starts_at_date is set' do
+    it 'updates starts_at when starts_at_date is set with Date' do
       calendar_event.starts_at_date = Date.parse('2015-01-01')
       expect(calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 PM')
     end
 
-    it 'creates starts_at when starts_at_date is set' do
+    it 'updates starts_at when starts_at_date is set with String' do
+      calendar_event.starts_at_date = '2015-01-01'
+      expect(calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 PM')
+    end
+
+    it 'creates starts_at when starts_at_date is set with Date' do
       new_calendar_event.starts_at_date = Date.parse('2015-01-01')
       expect(new_calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
     end
 
-    it 'updates starts_at when starts_at_time is set' do
+    it 'creates starts_at when starts_at_date is set with String' do
+      new_calendar_event.starts_at_date = '2015-01-01'
+      expect(new_calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
+    end
+
+    it 'updates starts_at when starts_at_time is set with Time' do
       calendar_event.starts_at_time = Time.parse('2:00 PM')
       expect(calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('12/17/2014 02:00 PM')
     end
 
-    it 'creates starts_at when starts_at_time is set' do
+    it 'updates starts_at when starts_at_time is set with String' do
+      calendar_event.starts_at_time = '2:00 PM'
+      expect(calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('12/17/2014 02:00 PM')
+    end
+
+    it 'creates starts_at when starts_at_time is set with Time' do
       new_calendar_event.starts_at_time = Time.parse('2:00 PM')
       expect(new_calendar_event.starts_at.strftime('%I:%M %p')).to eq('02:00 PM')
     end
 
-    it 'updates ends_at when ends_at_date is set' do 
+    it 'creates starts_at when starts_at_time is set with String' do
+      new_calendar_event.starts_at_time = '2:00 PM'
+      expect(new_calendar_event.starts_at.strftime('%I:%M %p')).to eq('02:00 PM')
+    end
+
+    it 'updates ends_at when ends_at_date is set with Date' do 
       calendar_event.ends_at_date = Date.parse('2015-01-01')
       expect(calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 02:00 PM')
     end
 
-    it 'creates ends_at when ends_at_date is set' do
+    it 'updates ends_at when ends_at_date is set with String' do 
+      calendar_event.ends_at_date = '2015-01-01'
+      expect(calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 02:00 PM')
+    end
+
+    it 'creates ends_at when ends_at_date is set with Date' do
       new_calendar_event.ends_at_date = Date.parse('2015-01-01')
       expect(new_calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
     end
 
-    it 'updates ends_at when ends_at_time is set' do
-      calendar_event.ends_at_time = Time.parse('2:00 PM')
-      expect(calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/19/2015 02:00 PM') end
+    it 'creates ends_at when ends_at_date is set with String' do
+      new_calendar_event.ends_at_date = '2015-01-01'
+      expect(new_calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
+    end
 
-    it 'creates ends_at when ends_at_time is set' do
+    it 'updates ends_at when ends_at_time is set with Time' do
+      calendar_event.ends_at_time = Time.parse('2:00 PM')
+      expect(calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/19/2015 02:00 PM') 
+    end
+
+    it 'updates ends_at when ends_at_time is set with String' do
+      calendar_event.ends_at_time = '2:00 PM'
+      expect(calendar_event.ends_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/19/2015 02:00 PM') 
+    end
+
+    it 'creates ends_at when ends_at_time is set with Time' do
       new_calendar_event.ends_at_time = Time.parse('2:00 PM')
+      expect(new_calendar_event.ends_at.strftime('%I:%M %p')).to eq('02:00 PM')
+    end
+
+    it 'creates ends_at when ends_at_time is set with String' do
+      new_calendar_event.ends_at_time = '2:00 PM'
       expect(new_calendar_event.ends_at.strftime('%I:%M %p')).to eq('02:00 PM')
     end
 

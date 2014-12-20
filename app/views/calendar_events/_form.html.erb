@@ -1,11 +1,11 @@
-<%= simple_form_for(@calendar_event) do |f| %>
+<%= simple_form_for(@calendar_event, remote: true, html: {role: :form, 'data-model' => 'calendar_event'}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
     <%= f.input :type %>
-    <%= f.input :starts_at %>
-    <%= f.input :ends_at %>
+    <%= f.datetime_local_field :starts_at %>
+    <%= f.input :ends_at_date, :value => @calendar_event.ends_at_date.strftime("%d-%m-%Y") %>
+    <%= f.input :ends_at_time %>
   </div>
 
   <div class="form-actions">

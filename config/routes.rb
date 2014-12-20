@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :calendar_events
+  resources :availabilities
 
   devise_for :users,
               path: "/",
