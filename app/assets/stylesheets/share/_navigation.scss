@@ -13,8 +13,8 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $horizontal-bar-mode: $large-screen;
 
-  background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
+  background: image-url("bg_1440px.jpg") no-repeat center center fixed;
+  background-size: 100%;
   font-family: $sans-serif;
   height: $navigation-height;
   width: 100%;

@@ -18,14 +18,15 @@ $medium-gray: #999;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-$light-green: #E6EFC2;
+$light-green: #7CBF7C;
 $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
+$red: #D4406B;
 
 // Background Color
 $base-background-color: white;
 $front-of-house-background-color: $orange;
-$navigation-background-color: $orange;
+$navigation-background-color: $light-green  ;
 
 // Font Colors
 $base-font-color: $dark-gray;
@@ -35,7 +36,7 @@ $front-of-house-accent-color: white;
 
 // Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: $dark-orange;
+$hover-link-color: $blue;
 $front-of-house-link-color: white;
 $front-of-house-hover-link-color: $hover-link-color;
 $base-button-color: $hover-link-color;

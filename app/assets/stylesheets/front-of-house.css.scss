@@ -1,8 +1,8 @@
 
-body.front-of-house,
-.navigation {
+html.front-of-house header.navigation {
 
-  background-color: $front-of-house-background-color;
+  background-color: transparent;
+  border-bottom: 1px solid white;
   color: $front-of-house-font-color;
 
   a{
@@ -30,4 +30,76 @@ body.front-of-house,
 
   }
 
+}
+
+html.front-of-house,
+body {
+  background-color: transparent
+}
+
+
+html.front-of-house { 
+  height:100%;
+  min-height:100%;
+  background: image-url("bg_1440px.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+  min-height:100%;
+}
+
+.hero {
+
+  $hero-background-top: #7F99BE; 
+  $hero-background-bottom: #20392B;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-bottom: 4em;
+
+  .hero-logo img {
+    height: 3em;
+    margin-bottom: 2.5em;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 3em;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    color: $hero-color;
+
+    .hero-copy {
+      text-align: center;
+      
+      h1 {
+        font-size: 3em;
+        margin-bottom: .5em;
+
+        @include media($large-screen) {
+          font-size: 4em;
+        }
+      }
+
+      p {
+        font-family: $serif;
+        margin: auto;
+        margin-bottom: 3em; 
+        font-weight: 200;
+        line-height: 1.4em;
+
+        @include media($large-screen) {
+          font-size: 1.1em;
+          max-width: 40%;
+        }
+      }
+    }
+  }
 }

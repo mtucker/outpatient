@@ -1,8 +1,11 @@
-<% content_for :body_class, "front-of-house" %>
+<% content_for :html_class, "front-of-house" %>
 
-<section class="intro-text hero">
-  <h2 class="logotype">chat<em>md</em></h2>
-  <h4>Schedule secure video appointments with qualified doctors and nutritionists anytime from the comfort of your home.</h4>
-  <%= link_to "I am a patient", new_user_registration_path, :class => "button", :method => :get  %>
-  <%= link_to "I am a provider", new_provider_registration_path, :class => "button", :method => :get  %>
-</section>
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-copy">
+            <h1>Outpatient.</h1>  
+            <%= link_to "I am a patient", new_user_registration_path, :class => "button", :method => :get  %>
+            <%= link_to "I am a provider", new_provider_registration_path, :class => "button", :method => :get  %>
+        </div>
+    </div>
+</div>
