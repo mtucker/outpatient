@@ -1,5 +1,6 @@
 <header class="navigation">
-  <div class="menu-wrapper">
+  <div class="navigation-wrapper">
+    <div class="logo">Outpatient.</div>
     <div class="navigation-tools">
     <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>

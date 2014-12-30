@@ -21,16 +21,16 @@ $light-yellow: #FFF6BF;
 $light-green: #7CBF7C;
 $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
-$red: #D4406B;
+$red: #F44336;
 
 // Background Color
 $base-background-color: white;
 $front-of-house-background-color: $orange;
-$navigation-background-color: $light-green  ;
+$navigation-background-color: $red;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $dark-orange;
+$base-accent-color: $blue;
 $front-of-house-font-color: white;
 $front-of-house-accent-color: white;
 
