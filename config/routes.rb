@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  resources :calendar_events
-  resources :availabilities
-
   devise_for :users,
               path: "/",
               path_names: {sign_in: 'login', sign_out: 'logout'}
@@ -12,8 +9,13 @@ Rails.application.routes.draw do
               path_names: {sign_up: 'register'}
   devise_for :administrators
 
-  resources :providers
-  resources :administrators
+  resources :administrators, :calendar_events
+
+  resources :providers do
+    member do
+      get 'home'
+    end
+  end
 
   ActiveAdmin.routes(self)
   

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if(resource.type == 'Administrator')
       '/admin'
     else
-      url_for(resource)
+      "#{url_for(resource)}/home"
     end
   end
 

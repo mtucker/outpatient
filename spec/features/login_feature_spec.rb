@@ -12,7 +12,7 @@ feature 'Login' do
 
     click_button 'Sign in'
 
-    expect(page).to have_content("Provider Profile")
+    expect(page).to have_content(provider.name)
 
   end
 

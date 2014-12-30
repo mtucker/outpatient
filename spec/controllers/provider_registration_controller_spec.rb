@@ -29,7 +29,7 @@ RSpec.describe ProvidersRegistrationsController, :type => :controller do
     
       it 'redirects to the provider profile' do
         post :create, provider: attributes_for(:provider)
-        expect(response).to redirect_to Provider.last
+        expect(response).to redirect_to("/providers/#{assigns(:provider).id}/home")
       end
     
     end
