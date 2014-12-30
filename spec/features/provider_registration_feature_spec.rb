@@ -22,9 +22,6 @@ feature 'Provider Registration' do
     expect(page).to have_text("ID: #{provider.id}")
     expect(page).to have_text("Name: #{provider.name}")
     expect(page).to have_text("Email: #{provider.email}")
-    expect(page).to have_text("Phone: #{provider.phone}")
-    expect(page).to have_text("Zip: #{provider.zip_code}")
-    expect(page).to have_text("Specialty: #{provider.specialty.name}")
 
   end
 

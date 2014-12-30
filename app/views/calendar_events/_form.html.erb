@@ -2,9 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :type %>
-    <%= f.datetime_local_field :starts_at %>
-    <%= f.input :ends_at_date, :value => @calendar_event.ends_at_date.strftime("%d-%m-%Y") %>
+    <%= f.hidden_field :calendar_event_type_id, value: @calendar_event.calendar_event_type_id %>
+    <%= f.input :starts_at_date %>
+    <%= f.input :starts_at_time %>
+    <%= f.input :ends_at_date %>
     <%= f.input :ends_at_time %>
   </div>
 
