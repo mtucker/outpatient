@@ -17,7 +17,7 @@
 RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-=begin
+
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
   # `:focus` metadata. When nothing is tagged with `:focus`, all examples
@@ -74,7 +74,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
   end
-=end
+
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
@@ -82,4 +82,9 @@ RSpec.configure do |config|
   Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
+  Rails.application.load_tasks
+
+  config.before(:all) do
+    Rake::Task['db:seed'].invoke
+  end
 end
