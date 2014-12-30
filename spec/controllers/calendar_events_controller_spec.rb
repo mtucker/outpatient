@@ -4,6 +4,26 @@ RSpec.describe CalendarEventsController, :type => :controller do
 
   login_user
 
+  describe 'GET index' do
+
+    it 'gets calendar events within a date range' do
+      included_event = create(:calendar_event, user: subject.current_user, starts_at: '2014-01-01T08:00:00-0500', ends_at: '2014-01-01T09:00:00-0500')
+      excluded_event = create(:calendar_event, user: subject.current_user, starts_at: '2014-01-05T08:00:00-0500', ends_at: '2014-01-05T09:00:00-0500')
+
+      get :index, {start: '2014-01-01', end: '2014-01-02'}
+      expect(assigns(:calendar_events)).to eq([included_event])
+    end
+
+    it 'gets calendar events for user' do
+      included_event = create(:calendar_event, user: subject.current_user, starts_at: '2014-01-01T08:00:00-0500', ends_at: '2014-01-01T09:00:00-0500')
+      excluded_event = create(:calendar_event, starts_at: '2014-01-05T08:00:00-0500', ends_at: '2014-01-05T09:00:00-0500')
+
+      get :index
+      expect(assigns(:calendar_events)).to eq([included_event])
+    end
+
+  end
+
   describe 'GET new' do
 
     it 'assigns a new calendar_event as @calendar_event' do
