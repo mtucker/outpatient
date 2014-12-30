@@ -7,8 +7,13 @@ class CalendarEvent < ActiveRecord::Base
   validates :user, presence: true
 
   belongs_to :user
+  belongs_to :calendar_event_type
 
   after_validation :add_datetime_errors
+
+  scope :user, -> (user) { where("user_id = ?", "#{user.id}")}
+  scope :starts_after, -> (start_dttm) { where("starts_at >= ?", "#{start_dttm}")}
+  scope :starts_before, -> (end_dttm) { where("starts_at <= ?", "#{end_dttm}")}
 
   def starts_at_date
     starts_at.to_date if starts_at.present?
