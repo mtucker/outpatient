@@ -10,10 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
- *= require fullcalendar
  */
 
+ @import "fullcalendar";
  @import "pickadate/classic";
  @import "pickadate/classic.date";
  @import "pickadate/classic.time";
