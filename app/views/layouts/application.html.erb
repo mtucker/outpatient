@@ -3,7 +3,6 @@
 <head>
   <title>Outpatient.</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= yield(:body_class) %>">
@@ -16,6 +15,8 @@
 
   <%= yield %>
 </div>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
 </html>
