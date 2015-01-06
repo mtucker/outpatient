@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :providers do
     member do
       get 'home'
+      get 'calendar'
     end
   end
 
