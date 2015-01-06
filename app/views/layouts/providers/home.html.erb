@@ -1,8 +1,8 @@
 <% content_for :secondary_nav_content do %>
 <ul id="js-navigation-menu" class="navigation-menu show">
-  <li class="nav-link"><%= link_to "Dashboard", home_provider_path %></li>
-  <li class="nav-link"><a href="javascript:void(0)">Profile</a></li>
-  <li class="nav-link"><%= link_to "Calendar", calendar_provider_path %></li>
+  <%= content_tag :li, link_to("Dashboard", home_provider_path), class: "nav-link #{css_class_active_for(home_provider_path)}" %>
+  <%= content_tag :li, link_to("Profile", edit_provider_path), class: "nav-link #{css_class_active_for(edit_provider_path)}" %>
+  <%= content_tag :li, link_to("Calendar", calendar_provider_path), class: "nav-link #{css_class_active_for(calendar_provider_path)}" %>
 </ul>
 <% end %>
 
