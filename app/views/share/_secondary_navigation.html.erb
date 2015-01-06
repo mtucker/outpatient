@@ -1,0 +1,19 @@
+
+<% if content_for?(:secondary_nav_content) %>
+<header class="secondary-navigation">
+  <div class="navigation-wrapper">
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <%= image_tag("menu-white.png") %>
+    </a>
+    <div class="nav">
+      <%= yield(:secondary_nav_content) %>
+    </div>
+
+    <% if content_for?(:secondary_nav_tools_content) %>
+      <div class="navigation-tools">      
+        <%= yield(:secondary_nav_tools_content) %>
+      </div>
+    <% end %>
+  </div>
+</header>
+<% end %>

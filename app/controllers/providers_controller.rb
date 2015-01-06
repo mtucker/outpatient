@@ -64,6 +64,7 @@ class ProvidersController < ApplicationController
   end
 
   def home
+    render :layout => 'providers/home'
   end
 
   private

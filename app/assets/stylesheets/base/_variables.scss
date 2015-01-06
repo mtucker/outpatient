@@ -1,3 +1,15 @@
+// Color Palette
+$primary-color: #8BC34A;
+$primary-color-light: #DCEDC8;
+$primary-color-dark: #689F38;
+$accent-color: #448AFF;
+$primary-text-on-light-color: #212121;
+$secondary-text-on-light-color: #727272;
+$primary-text-on-dark-color: white;
+$secondary-text-on-dark-color: #f7f7f7;
+$divider-color: #B6B6B6;
+$icon-color: $primary-text-on-light-color;
+
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
@@ -15,34 +27,34 @@ $base-border-radius: em(3);
 $blue: #477DCA;
 $dark-gray: #333;
 $medium-gray: #999;
-$light-gray: #DDD;
+$light-gray: #979797;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #7CBF7C;
 $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
-$red: #F44336;
+$red: #E84B3A;
 
 // Background Color
-$base-background-color: white;
-$front-of-house-background-color: $orange;
-$navigation-background-color: $red;
+$base-background-color: $secondary-text-on-dark-color;
+$primary-navigation-background-color: $primary-color;
+$secondary-navigation-background-color: $dark-gray;
 
 // Font Colors
-$base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-font-color: $primary-text-on-light-color;
+$base-accent-color: $accent-color;
 $front-of-house-font-color: white;
 $front-of-house-accent-color: white;
 
 // Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: $blue;
+$hover-link-color: $accent-color;
 $front-of-house-link-color: white;
 $front-of-house-hover-link-color: $hover-link-color;
 $base-button-color: $hover-link-color;
 $hover-button-color: $base-link-color;
-$base-button-text-color: $base-font-color;
-$hover-button-text-color: $hover-link-color;
+$base-button-text-color: $secondary-text-on-dark-color;
+$hover-button-text-color: darken($hover-link-color, 25%);
 
 // Border color
 $base-border-color: $light-gray;

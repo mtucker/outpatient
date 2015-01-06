@@ -1,13 +1,2 @@
-<header class="navigation">
-  <div class="navigation-wrapper">
-    <div class="logo">Outpatient.</div>
-    <div class="navigation-tools">
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %> or
-      <%= link_to "Sign up", new_provider_registration_path %>
-    <% end %>
-    </div>
-  </div>
-</header>
+<%= render "share/primary_navigation" %>
+<%= render "share/secondary_navigation" %>

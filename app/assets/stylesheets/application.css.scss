@@ -12,6 +12,7 @@
  *
  */
 
+ @import "compass";
  @import "fullcalendar";
  @import "pickadate/classic";
  @import "pickadate/classic.date";
@@ -20,9 +21,14 @@
  @import "bourbon";
  @import "base/base";
  @import "neat";
+ @import "base/refills/navigation";
+ @import "base/refills/tables";
+ @import "share/logo";
  @import "share/navigation";
  @import "share/structure";
  @import "share/forms";
  @import "share/modals";
+ @import "share/components";
+ @import "share/tables";
  @import "front-of-house";
  @import "welcome";

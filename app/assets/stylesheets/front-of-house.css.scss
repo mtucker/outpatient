@@ -2,8 +2,14 @@
 html.front-of-house header.navigation {
 
   background-color: transparent;
-  border-bottom: 1px solid white;
+  border-bottom: none;
   color: $front-of-house-font-color;
+
+  .logo {
+
+    visibility: hidden;
+
+  }
 
   a{
     color: $front-of-house-link-color;
@@ -32,9 +38,14 @@ html.front-of-house header.navigation {
 
 }
 
-html.front-of-house,
-body {
-  background-color: transparent
+html.front-of-house {
+
+  background-color: transparent;
+
+  body {
+    background-color: transparent;
+  }
+  
 }
 
 
