@@ -1,7 +1,7 @@
 // Color Palette
-$primary-color: #8BC34A;
-$primary-color-light: #DCEDC8;
-$primary-color-dark: #689F38;
+$primary-color: #FF5722;
+$primary-color-light: lighten($primary-color, 20%);
+$primary-color-dark: darken($primary-color, 9.5%);
 $accent-color: #448AFF;
 $primary-text-on-light-color: #212121;
 $secondary-text-on-light-color: #727272;
