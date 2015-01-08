@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+
+  # Determine if we need to use the front-of-house layout
+  layout :layout_for_controller
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -16,6 +20,20 @@ class ApplicationController < ActionController::Base
     else
       "#{url_for(resource)}/home"
     end
+  end
+
+  def layout_for_controller
+
+    if front_of_house_controller?
+      'front_of_house'
+    else
+      'application'
+    end
+
+  end
+
+  def front_of_house_controller?
+    return devise_controller?
   end
 
 end

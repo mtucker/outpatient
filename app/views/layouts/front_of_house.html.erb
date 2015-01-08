@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Outpatient.</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="front-of-house">
+
+  <%= render "share/navigation" %>
+
+  <% if notice %>
+  <div class="flash-notice"><%= notice %></div>
+  <% end %>
+
+  <% if alert %>
+  <div class="flash-error"><%= alert %></div>
+  <% end %>
+
+  <div class="content">
+
+    <%= content_for?(:content) ? yield(:content) : yield %>
+    
+  </div>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  </body>
+</html>
