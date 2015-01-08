@@ -12,6 +12,7 @@ header.primary-navigation {
   min-height: $navigation-height;
   background: $primary-navigation-background-color;
   padding-left: $navigation-padding-left;
+  border-bottom: none;
 
   .nav {
 
