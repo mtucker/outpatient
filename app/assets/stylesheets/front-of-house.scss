@@ -38,12 +38,6 @@ body.front-of-house header.navigation {
 
 }
 
-html.front-of-house {
-
-  background-color: transparent;
-  
-}
-
 
 body.front-of-house { 
   height:100%;
@@ -55,6 +49,7 @@ body.front-of-house {
   background-size: cover;
   height:100%;
   min-height:100%;
+  color: white;
 }
 
 .hero {
