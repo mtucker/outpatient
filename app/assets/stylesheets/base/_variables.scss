@@ -30,7 +30,8 @@ $medium-gray: #999;
 $light-gray: #979797;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-$light-green: #7CBF7C;
+$light-green: #E6EFC2;
+$light-blue: #E5EDF8;
 $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
 $red: #E84B3A;
@@ -62,7 +63,7 @@ $base-border-color: $light-gray;
 // Flash Colors
 $alert-color: $light-yellow;
 $error-color: $light-red;
-$notice-color: $light-yellow;
+$notice-color: $light-blue;
 $success-color: $light-green;
 
 // Forms
