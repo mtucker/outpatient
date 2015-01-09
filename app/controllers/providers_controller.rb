@@ -61,10 +61,12 @@ class ProvidersController < ApplicationController
     end
   end
 
+  # GET /providers/1/home
   def home
     render :layout => 'providers/home'
   end
 
+  # GET /providers/1/calendar
   def calendar
     calendar_event_type = CalendarEventType.find_by name: 'ONLINE_APPOINTMENT_AVAILABILITY'
     @calendar_event = CalendarEvent.new({calendar_event_type: calendar_event_type}) 
