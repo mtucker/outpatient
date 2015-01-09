@@ -1,6 +1,14 @@
 ActiveAdmin.register Provider do
-
-  permit_params :name, :email, :password, :password_confirmation, :specialty_id, :is_active, :phone, :zip_code
+  permit_params(
+    :name, 
+    :email, 
+    :password, 
+    :password_confirmation, 
+    :specialty_id, 
+    :is_active, 
+    :phone, 
+    :zip_code
+  )
 
   filter :name
   filter :email
@@ -30,8 +38,8 @@ ActiveAdmin.register Provider do
       f.input :name
       f.input :email
       if f.object.new_record?
-          f.input :password
-          f.input :password_confirmation
+        f.input :password
+        f.input :password_confirmation
       end
       f.input :specialty
       f.input :is_active
@@ -41,7 +49,7 @@ ActiveAdmin.register Provider do
     f.actions
   end
 
-  show do |p|
+  show do |_p|
     attributes_table do
       row :name
       row :email
@@ -52,5 +60,4 @@ ActiveAdmin.register Provider do
     end
     active_admin_comments
   end
-
 end

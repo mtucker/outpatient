@@ -1,16 +1,19 @@
+# Manages requests for Calendar Events
+#
+# Calendar Events are also configured as a nested resource
+# within Providers. So his controller can also be reached 
+# via provider routes (e.g., '/providers/1/calendar_events')
 class CalendarEventsController < ApplicationController
-
   before_filter :authenticate_user!
 
   def index
-    @calendar_events = CalendarEvent.where(nil) # creates an anonymous scope
-    @calendar_events = @calendar_events.user(current_user)
-    @calendar_events = @calendar_events.starts_after(params[:start]) if params[:start].present? 
-    @calendar_events = @calendar_events.starts_before(params[:end]) if params[:end].present?
+    @calendar_events = CalendarEvent.user(current_user)
+      .starts_after(params[:start])
+      .starts_before(params[:end])
 
     respond_to do |format|
       format.html
-      format.json { render json: @calendar_events } 
+      format.json { render json: @calendar_events }
     end
   end
 
@@ -21,7 +24,7 @@ class CalendarEventsController < ApplicationController
   def create
     @calendar_event = CalendarEvent.new(calendar_event_params)
 
-    if !@calendar_event.user
+    unless @calendar_event.user
       @calendar_event.user = current_user
     end
 
@@ -42,5 +45,4 @@ class CalendarEventsController < ApplicationController
   def calendar_event_params
     params.require(:calendar_event).permit(:user_id, :calendar_event_type_id, :starts_at, :ends_at, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time)
   end
-
 end

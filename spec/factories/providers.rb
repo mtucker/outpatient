@@ -18,5 +18,4 @@ FactoryGirl.define do
   factory :active_provider, parent: :provider do |f|
     f.is_active true
   end
-
 end

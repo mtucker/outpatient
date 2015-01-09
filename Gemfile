@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
 
-gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+gem 'inherited_resources',
+    github: 'josevalim/inherited_resources',
+    branch: 'rails-4-2'
 gem 'activeadmin', github: 'activeadmin'
 gem 'bitters'
 gem 'bourbon'
@@ -36,6 +38,7 @@ group :development do
   gem 'guard-rspec',      require: false
   gem 'guard-sass',       require: false
   gem 'guard-compass',    require: false
+  gem 'rubocop',          require: false
   gem 'spring'
   gem 'spring-commands-rspec'
 end

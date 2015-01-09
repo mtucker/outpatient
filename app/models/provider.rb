@@ -1,5 +1,4 @@
 class Provider < User
-
   validates :name, :email, :phone, :zip_code, presence: true
 
   belongs_to :specialty
@@ -9,9 +8,6 @@ class Provider < User
   private
 
   def set_defaults
-
     self.is_active = false
-
   end
-
 end

@@ -10,10 +10,10 @@ end
 
 # TODO Remove this.
 100.times do
-  FactoryGirl::create(:provider,
-    {
-      specialty: Specialty.offset(rand(Specialty.count)).first,
-      is_active: rand(0..1)
-    }
+  FactoryGirl.create(:provider,
+
+                     specialty: Specialty.offset(rand(Specialty.count)).first,
+                     is_active: rand(0..1)
+
   )
 end

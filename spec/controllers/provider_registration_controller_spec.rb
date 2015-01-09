@@ -1,13 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe ProvidersRegistrationsController, :type => :controller do
-
+RSpec.describe ProvidersRegistrationsController, type: :controller do
   before do
-    request.env["devise.mapping"] = Devise.mappings[:provider]
+    request.env['devise.mapping'] = Devise.mappings[:provider]
   end
 
-  describe "GET #new" do
-
+  describe 'GET #new' do
     it 'assigns a new Provider to @provider' do
       get :new
       expect(assigns(:provider)).to be_a Provider
@@ -17,17 +15,15 @@ RSpec.describe ProvidersRegistrationsController, :type => :controller do
       get :new
       expect(response).to render_template :new
     end
-
   end
 
-  describe "POST #create" do
-
+  describe 'POST #create' do
     context 'with valid attributes' do
       it 'creates a new provider record in the database' do
-        expect{post :create, provider: attributes_for(:provider)}.to change { User.count }.by(1)
+        expect { post :create, provider: attributes_for(:provider) }.to change { User.count }.by(1)
         puts session.inspect
       end
-    
+
       it 'redirects to the provider profile' do
         post :create, provider: attributes_for(:provider)
         expect(response).to redirect_to(home_provider_url(assigns(:provider)))
@@ -37,9 +33,6 @@ RSpec.describe ProvidersRegistrationsController, :type => :controller do
         post :create, provider: attributes_for(:provider)
         expect(subject.current_user).not_to be_nil
       end
-    
     end
-
   end
-
 end

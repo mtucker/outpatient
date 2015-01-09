@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   acts_as_paranoid
 
   # Include default devise modules. Others available are:
@@ -12,13 +11,10 @@ class User < ActiveRecord::Base
   private
 
   def set_activation_dates
-
-    if(self.is_active)
+    if is_active
       self.activated_at = Time.now
     else
       self.deactivated_at = Time.now
     end
-
   end
-
 end

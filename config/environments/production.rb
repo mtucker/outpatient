@@ -82,5 +82,5 @@ Rails.application.configure do
 
   # Default mailer URL
   # TODO: this probably needs to change when we get a domain
-  config.action_mailer.default_url_options = { :host => 'chatmd.heroku.com' }
+  config.action_mailer.default_url_options = { host: 'chatmd.heroku.com' }
 end

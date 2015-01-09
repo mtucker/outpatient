@@ -3,10 +3,9 @@
 FactoryGirl.define do
   factory :calendar_event do |f|
     f.starts_at DateTime.now
-    f.ends_at 1.hour.from_now 
+    f.ends_at 1.hour.from_now
     user
   end
-
 
   factory :invalid_calendar_event, parent: :calendar_event do |f|
     f.starts_at nil
@@ -20,5 +19,4 @@ FactoryGirl.define do
     f.ends_at_date 1.day.from_now.strftime('%Y/%m/%d')
     f.ends_at_time Time.now.strftime('%I:%M %p')
   end
-
 end

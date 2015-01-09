@@ -15,8 +15,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
@@ -75,13 +75,13 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
+  ENV['RAILS_ENV'] ||= 'test'
+  require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
-  Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
-  config.include Devise::TestHelpers, :type => :controller
-  config.extend ControllerMacros, :type => :controller
+  Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
+  config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
   Rails.application.load_tasks
 
   config.before(:all) do

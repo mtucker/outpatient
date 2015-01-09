@@ -30,7 +30,7 @@ RSpec::Matchers.define :have_valid do |attribute_name|
   end
 
   def print_values(values)
-    values.map(&:inspect).join(", ")
+    values.map(&:inspect).join(', ')
   end
 
   failure_message do |record|

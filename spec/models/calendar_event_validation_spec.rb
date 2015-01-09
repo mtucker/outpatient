@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe CalendarEvent, :type => :model do
-
+RSpec.describe CalendarEvent, type: :model do
   context 'being validated' do
-
     let(:calendar_event) { CalendarEvent.new }
 
     it 'requires a start time' do
@@ -18,12 +16,12 @@ RSpec.describe CalendarEvent, :type => :model do
     end
 
     it 'requires a valid date for start time' do
-      expect(calendar_event).not_to have_valid(:starts_at).when(123456)
+      expect(calendar_event).not_to have_valid(:starts_at).when(123_456)
       expect(calendar_event).not_to have_valid(:starts_at).when('Not a date')
     end
 
     it 'requires a valid date for end time' do
-      expect(calendar_event).not_to have_valid(:ends_at).when(123456)
+      expect(calendar_event).not_to have_valid(:ends_at).when(123_456)
       expect(calendar_event).not_to have_valid(:ends_at).when('Not a date')
     end
 
@@ -45,7 +43,5 @@ RSpec.describe CalendarEvent, :type => :model do
       expect(calendar_event).to have_valid(:user).when(FactoryGirl.create(:user))
       expect(calendar_event).not_to have_valid(:user).when(nil)
     end
-
   end
-
 end

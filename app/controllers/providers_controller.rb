@@ -63,25 +63,26 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/home
   def home
-    render :layout => 'providers/home'
+    render layout: 'providers/home'
   end
 
   # GET /providers/1/calendar
   def calendar
     calendar_event_type = CalendarEventType.find_by name: 'ONLINE_APPOINTMENT_AVAILABILITY'
-    @calendar_event = CalendarEvent.new({calendar_event_type: calendar_event_type}) 
-    
-    render :layout => 'providers/home'
+    @calendar_event = CalendarEvent.new(calendar_event_type: calendar_event_type)
+
+    render layout: 'providers/home'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_provider
-      @provider = Provider.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def provider_params
-      params.require(:provider).permit(:name, :email, :password, :password_confirmation, :zip_code, :phone)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_provider
+    @provider = Provider.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def provider_params
+    params.require(:provider).permit(:name, :email, :password, :password_confirmation, :zip_code, :phone)
+  end
 end

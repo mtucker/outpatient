@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-
-
   devise_for :users,
-              path: "/",
-              path_names: {sign_in: 'login', sign_out: 'logout'}
+             path: '/',
+             path_names: { sign_in: 'login', sign_out: 'logout' }
   devise_for :providers,
-              controllers: {registrations: 'providers_registrations'},
-              path_names: {sign_up: 'register'}
+             controllers: { registrations: 'providers_registrations' },
+             path_names: { sign_up: 'register' }
   devise_for :administrators
 
   resources :administrators, :calendar_events
@@ -20,10 +18,9 @@ Rails.application.routes.draw do
   end
 
   ActiveAdmin.routes(self)
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
 
   root 'welcome#index'
 
