@@ -25,11 +25,17 @@ RSpec.describe ProvidersRegistrationsController, :type => :controller do
     context 'with valid attributes' do
       it 'creates a new provider record in the database' do
         expect{post :create, provider: attributes_for(:provider)}.to change { User.count }.by(1)
+        puts session.inspect
       end
     
       it 'redirects to the provider profile' do
         post :create, provider: attributes_for(:provider)
-        expect(response).to redirect_to("/providers/#{assigns(:provider).id}/home")
+        expect(response).to redirect_to(home_provider_url(assigns(:provider)))
+      end
+
+      it 'has correct session information' do
+        post :create, provider: attributes_for(:provider)
+        expect(subject.current_user).not_to be_nil
       end
     
     end

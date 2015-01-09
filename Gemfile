@@ -6,6 +6,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'compass-rails'
 gem 'date_validator'
 gem 'devise'
@@ -20,7 +21,6 @@ gem 'pg'
 gem 'rails'
 gem 'refills'
 gem 'responders', '~> 2.0'
-gem 'sass-rails', '~> 4.0.3'
 gem 'seedbank'
 gem 'simple_calendar', '~> 1.1.0'
 gem 'simple_form'
@@ -34,7 +34,8 @@ end
 group :development do
   gem 'guard-livereload', require: false
   gem 'guard-rspec',      require: false
-  gem 'guard-sass'
+  gem 'guard-sass',       require: false
+  gem 'guard-compass',    require: false
   gem 'spring'
   gem 'spring-commands-rspec'
 end

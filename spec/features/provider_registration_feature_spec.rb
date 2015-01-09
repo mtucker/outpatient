@@ -18,10 +18,7 @@ feature 'Provider Registration' do
     click_button 'Sign up'
 
     expect(page).to have_text('Welcome! You have signed up successfully.')
-    expect(page).to have_text('Provider Profile')
-    expect(page).to have_text("ID: #{provider.id}")
-    expect(page).to have_text("Name: #{provider.name}")
-    expect(page).to have_text("Email: #{provider.email}")
+    expect(page).to have_text('Sign out')
 
   end
 

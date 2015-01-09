@@ -11,6 +11,19 @@ class ApplicationController < ActionController::Base
    redirect_to new_user_session_path unless current_user.type == 'Administrator'
   end
 
+  # Override Devise's current_user method so that it accomodates all user types
+  alias_method :devise_current_user, :current_user
+
+  def current_user
+    if administrator_signed_in? 
+      current_administrator
+    elsif provider_signed_in?
+      current_provider
+    else
+      devise_current_user
+    end
+  end
+
   protected
 
   def after_sign_in_path_for(resource)

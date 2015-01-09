@@ -5,14 +5,18 @@ feature 'Login' do
 
     provider = create(:provider)
 
-    visit '/login'
+    visit '/'
+
+    expect(page).to have_text('Sign in')
+
+    click_link('Sign in')
 
     fill_in 'Your email address.', :with => provider.email
     fill_in 'Your password.', :with => provider.password
 
     click_button 'Sign in'
 
-    expect(page).to have_content(provider.name)
+    expect(page).to have_text('Sign out')
 
   end
 

@@ -13,11 +13,11 @@ RSpec.describe CalendarEvent, :type => :model do
     }
 
     it 'returns correct start date' do
-      expect(calendar_event.starts_at_date.strftime('%m/%d/%Y')).to eq('12/17/2014')
+      expect(calendar_event.starts_at_date.in_time_zone.strftime('%m/%d/%Y')).to eq('12/17/2014')
     end
 
     it 'returns correct start time' do
-      expect(calendar_event.starts_at_time.strftime('%I:%M %p')).to eq('12:00 PM')
+      expect(calendar_event.starts_at_time.in_time_zone.strftime('%I:%M %p')).to eq('12:00 PM')
     end
 
     it 'returns correct end date' do
@@ -56,7 +56,7 @@ RSpec.describe CalendarEvent, :type => :model do
 
     it 'creates starts_at when starts_at_date is set with Date' do
       new_calendar_event.starts_at_date = Date.parse('2015-01-01')
-      expect(new_calendar_event.starts_at.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
+      expect(new_calendar_event.starts_at_thing.strftime('%m/%d/%Y %I:%M %p')).to eq('01/01/2015 12:00 AM')
     end
 
     it 'creates starts_at when starts_at_date is set with String' do
