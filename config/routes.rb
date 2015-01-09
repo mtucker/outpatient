@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'home'
       get 'calendar'
     end
+    resources :calendar_events
   end
 
   ActiveAdmin.routes(self)
