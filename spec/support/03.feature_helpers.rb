@@ -1,11 +1,11 @@
 module FeatureHelpers
-  def admin_logs_in
+  def admin_signs_in
     admin = create(:administrator)
 
     sign_in_user(admin)
   end
 
-  def provider_logs_in
+  def provider_signs_in
     provider = create(:provider)
 
     sign_in_user(provider)

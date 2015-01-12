@@ -19,6 +19,6 @@ feature 'Login' do
   end
 
   scenario 'Admin logs in' do
-    admin_logs_in
+    admin_signs_in
   end
 end

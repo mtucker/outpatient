@@ -4,7 +4,7 @@ feature 'Provider Admin' do
   scenario 'Admin creates a Provider' do
     provider = build(:provider)
 
-    admin_logs_in
+    admin_signs_in
 
     visit '/admin/providers/new'
 
@@ -26,7 +26,7 @@ feature 'Provider Admin' do
   scenario 'Admin deletes a Provider' do
     provider = create(:provider)
 
-    admin_logs_in
+    admin_signs_in
 
     visit "/admin/providers/#{provider.id}"
 

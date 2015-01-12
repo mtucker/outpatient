@@ -4,7 +4,7 @@ feature 'Calendar' do
 
   scenario 'Provider clicks the Calendar and is presented with a new Calendar Event form', js: true do
 
-    provider_logs_in
+    provider_signs_in
 
     click_link 'Calendar'
 
