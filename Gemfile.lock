@@ -365,6 +365,7 @@ DEPENDENCIES
   bitters
   bourbon
   capybara
+  capybara-webkit
   coffee-rails (~> 4.0.0)
   compass-rails
   database_cleaner
