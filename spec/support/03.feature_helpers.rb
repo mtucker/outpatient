@@ -6,7 +6,7 @@ module FeatureHelpers
   end
 
   def provider_logs_in
-    provider = create(:provider, {password: 'testtest'})
+    provider = create(:provider)
 
     sign_in_user(provider)
   end
