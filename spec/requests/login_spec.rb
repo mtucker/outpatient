@@ -6,7 +6,8 @@ RSpec.describe 'Login' do
       provider = create(:provider)
       post '/login', user: { email: provider.email, password: provider.password }
 
-      expect(response).to redirect_to("/providers/#{assigns(:user).id}/home")
+      expect(response).to redirect_to(home_provider_url(provider))
+
     end
   end
 end
