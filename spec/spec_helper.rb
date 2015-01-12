@@ -85,6 +85,7 @@ RSpec.configure do |config|
   Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
+  config.include FeatureHelpers, type: :feature
   config.include FullCalendarHelpers, type: :feature
   Rails.application.load_tasks
 
