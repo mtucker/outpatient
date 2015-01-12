@@ -34,10 +34,13 @@ group :production do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'guard-livereload', require: false
   gem 'guard-rspec',      require: false
   gem 'guard-sass',       require: false
   gem 'guard-compass',    require: false
+  gem 'meta_request'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'rubocop',          require: false
   gem 'spring'
   gem 'spring-commands-rspec'

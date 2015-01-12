@@ -72,6 +72,7 @@ GEM
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
+    awesome_print (1.6.1)
     bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -87,6 +88,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    callsite (0.0.11)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -206,6 +208,10 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -242,6 +248,8 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     rack (1.6.0)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.2.0)
@@ -362,6 +370,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  awesome_print
   bitters
   bourbon
   capybara
@@ -382,6 +391,7 @@ DEPENDENCIES
   inherited_resources!
   jquery-rails
   launchy
+  meta_request
   momentjs-rails
   neat
   paranoia (~> 2.0)
@@ -391,6 +401,7 @@ DEPENDENCIES
   pry-stack_explorer
   rails
   rails_12factor
+  rb-fsevent
   refills
   responders (~> 2.0)
   rspec-rails
