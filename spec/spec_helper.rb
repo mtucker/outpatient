@@ -75,9 +75,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # Use the webkit capybara driver for feature tests that require JS
-  Capybara.javascript_driver = :webkit
-
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
