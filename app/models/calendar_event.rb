@@ -26,7 +26,6 @@ class CalendarEvent < ActiveRecord::Base
     starts_at_date = Date.parse(starts_at_date) if starts_at_date.is_a? String
     self.starts_at = Time.zone.now.beginning_of_day unless starts_at.present?
     self.starts_at = starts_at.change_date(starts_at_date)
-    puts starts_at.inspect
   end
 
   def starts_at_time

@@ -74,7 +74,6 @@ RSpec.describe CalendarEventsController, type: :controller do
     describe 'with separate start date and time' do
       it 'correctly saves the starts_at attribute' do
         calendar_event_attributes = FactoryGirl.attributes_for(:calendar_event_with_separate_date_and_times)
-        puts calendar_event_attributes
         post :create, calendar_event: calendar_event_attributes
         expect(CalendarEvent.last.starts_at.strftime('%Y/%m/%d %I:%M %p')).to eq(calendar_event_attributes[:starts_at_date] + ' ' + calendar_event_attributes[:starts_at_time])
       end
