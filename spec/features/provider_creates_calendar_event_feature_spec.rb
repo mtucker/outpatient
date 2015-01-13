@@ -34,7 +34,7 @@ feature 'Provider creates a Calendar Events' do
 
   end
 
-  scenario 'When the new Calendar Event form is submitted with invalid information, errors are rendered on the page', js: true, focus: true do
+  scenario 'When the new Calendar Event form is submitted with invalid information, errors are rendered on the page', js: true do
 
     provider_signs_in
 
@@ -81,7 +81,7 @@ feature 'Provider creates a Calendar Events' do
 
   @dttms.each do |dttm|
 
-    scenario 'New Calendar Event form is prepopulated with a date range based on where the user clicked', js: true, focus: true do
+    scenario 'New Calendar Event form is prepopulated with a date range based on where the user clicked', js: true do
 
       provider_signs_in
 
