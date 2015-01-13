@@ -45,3 +45,7 @@ en:
             phone:
               blank: "Please specify your phone number."
               invalid: "Please specify a valid phone number."
+        calendar_event:
+          attributes:
+            ends_at:
+              after: "An event must end after it starts!"

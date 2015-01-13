@@ -3,10 +3,10 @@ $('#calendar').fullCalendar({
   defaultView: 'agendaWeek',
   dayClick: function(date, jsEvent, view) {
 
-    $('#calendar_event_starts_at_date').pickadate('picker').set('select', date.format("YYYY/M/D"));
+    $('#calendar_event_starts_at_date').pickadate('picker').set('select', date.toDate());
     $('#calendar_event_starts_at_time').pickatime('picker').set('select', date.format("hh:mm a"));
 
-    $('#calendar_event_ends_at_date').pickadate('picker').set('select', date.format("YYYY/M/D"));
+    $('#calendar_event_ends_at_date').pickadate('picker').set('select', date.toDate());
     $('#calendar_event_ends_at_time').pickatime('picker').set('select', date.add(1, 'hours').format("hh:mm a"));
 
     $("#modal").click();
