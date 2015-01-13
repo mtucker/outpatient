@@ -83,7 +83,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.include FeatureHelpers, type: :feature
-  config.include FullCalendarHelpers, type: :feature
+  config.include CalendarHelpers, type: :feature
   Rails.application.load_tasks
 
   config.before(:all) do
