@@ -1,3 +1,54 @@
 // Place all the styles related to the CalendarEvents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#event .modal-inner {
+
+  .form-header {
+
+    margin-bottom: 1em;
+
+  }
+
+  .form-inputs {
+
+    @include outer-container();
+
+    .input-group {
+
+      @include span-columns(5 of 11);
+
+      margin-bottom: 2em;
+
+      .input {
+
+        @include span-columns(6);
+
+        input {
+
+          margin-bottom: 0px;
+
+        }
+
+      }
+
+    }
+
+    .to {
+
+      @include span-columns(1 of 11);
+
+      text-align: center;
+      line-height: 50px;
+
+    }
+
+  }
+
+  .form-actions {
+
+    text-align: right;  
+
+  }
+
+}

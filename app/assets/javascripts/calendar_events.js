@@ -10,7 +10,17 @@ $('#calendar_event_ends_at_time').pickatime({format: 'h:i A'});
 // http://fullcalendar.io/
 $('#calendar').fullCalendar({
   defaultView: 'agendaWeek',
+  timezone: 'local',
+  allDaySlot: false,
   dayClick: function(date, jsEvent, view) {
+
+    $('.form-header.edit').hide();
+    $('.form-header.new').show();
+
+    $('form[data-model="calendar_event"]').attr('action', '/calendar_events/');
+    $('form[data-model="calendar_event"]').attr('method', 'post');
+
+    $('#calendar_event_id').val("");
 
     // Set the start date and time of the Calendar Event form based on where on the
     // calendar the user clicked
@@ -21,6 +31,34 @@ $('#calendar').fullCalendar({
     // calendar the user clicked, plus one hour
     $('#calendar_event_ends_at_date').pickadate('picker').set('select', date.toDate());
     $('#calendar_event_ends_at_time').pickatime('picker').set('select', date.add(1, 'hours').format("hh:mm a"));
+
+    // Display the modal containing the CalendarEvent form
+    $("#modal").click();
+
+  },
+  eventClick: function(calEvent, jsEvent, view) {
+
+    var startDate = calEvent.start;
+    var endDate = calEvent.end;
+
+    $('.form-header.new').hide();
+    $('.form-header.edit').show();
+
+    $('form[data-model="calendar_event"]').attr('action', '/calendar_events/' + calEvent.id);
+    $('form[data-model="calendar_event"]').attr('method', 'put');
+
+    $('#calendar_event_id').val(calEvent.id);
+    $('form[data-model="calendar_event"] a.delete').attr('href', '/calendar_events/' + calEvent.id)
+
+    // Set the start date and time of the Calendar Event form based on where on the
+    // calendar the user clicked
+    $('#calendar_event_starts_at_date').pickadate('picker').set('select', startDate.toDate());
+    $('#calendar_event_starts_at_time').pickatime('picker').set('select', startDate.format("hh:mm a"));
+
+    // Set the start date and time of the Calendar Event form based on where on the
+    // calendar the user clicked, plus one hour
+    $('#calendar_event_ends_at_date').pickadate('picker').set('select', endDate.toDate());
+    $('#calendar_event_ends_at_time').pickatime('picker').set('select', endDate.format("hh:mm a"));
 
     // Display the modal containing the CalendarEvent form
     $("#modal").click();
@@ -39,7 +77,8 @@ $('#calendar').fullCalendar({
           var events = [];
           $(json).each(function() {
               events.push({
-                  title: 'calendar_event',
+                  id: $(this).attr('id'),
+                  title: 'Available',
                   start: $(this).attr('starts_at'),
                   end: $(this).attr('ends_at')
               });
@@ -69,7 +108,7 @@ $.fn.modal_success = function(event){
   // clear error state
   this.clear_previous_errors();
 
-  $('#calendar').fullCalendar( 'renderEvent', { title: 'calendar_event', start: event["starts_at"], end: event["ends_at"]});
+  $('#calendar').fullCalendar( 'refetchEvents' );
 };
 
 $.fn.render_form_errors = function(model, errors){
@@ -78,8 +117,7 @@ $.fn.render_form_errors = function(model, errors){
 
   $.each(errors, function(field, messages){
 
-    $('.' + model + '_' + field).addClass('field_with_errors');
-    $('.' + model + '_' + field).append("<span class='error'>" + messages.join(' & ') + "</span>");
+    $('.form-header').append("<div class='flash-error'>" + messages.join(' & ') + "</div>");
       
   });
 

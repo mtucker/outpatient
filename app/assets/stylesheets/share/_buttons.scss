@@ -1,0 +1,12 @@
+button.delete,
+input[type="submit"].delete,
+a.button.delete {
+  @extend %button;
+  background-color: $delete-button-color;
+
+  &:hover {
+    background-color: $hover-delete-button-color;
+    color: white;
+  }
+  
+}

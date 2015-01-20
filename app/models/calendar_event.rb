@@ -8,8 +8,6 @@ class CalendarEvent < ActiveRecord::Base
   belongs_to :user
   belongs_to :calendar_event_type
 
-  after_validation :add_datetime_errors
-
   scope :user, -> (user) { where('user_id = ?', "#{user.id}") }
   scope :starts_after, -> (start_dttm) { where('starts_at >= ?', "#{start_dttm}") if start_dttm.present? }
   scope :starts_before, -> (end_dttm) { where('starts_at <= ?', "#{end_dttm}") if end_dttm.present? }
@@ -56,18 +54,6 @@ class CalendarEvent < ActiveRecord::Base
     ends_at_time = Time.zone.parse(ends_at_time) if ends_at_time.is_a? String
     self.ends_at = Time.zone.now.beginning_of_day unless ends_at.present?
     self.ends_at = ends_at.change_time(ends_at_time)
-  end
-
-  def add_datetime_errors
-    errors[:starts_at].each do |msg|
-      errors.add(:starts_at_date, msg)
-      errors.add(:starts_at_time, msg)
-    end
-
-    errors[:ends_at].each do |msg|
-      errors.add(:ends_at_date, msg)
-      errors.add(:ends_at_time, msg)
-    end
   end
 
 end

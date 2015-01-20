@@ -8,11 +8,11 @@ feature 'Provider creates a Calendar Events' do
 
     click_link 'Calendar'
 
-    expect(page).not_to have_text('Add Availability')
+    expect(page).not_to have_text('Schedule availability for virtual visits.')
 
     day_click('#calendar', Time.now)
 
-    expect(page).to have_text('Add Availability')
+    expect(page).to have_text('Schedule availability for virtual visits.')
 
   end
 
@@ -26,7 +26,7 @@ feature 'Provider creates a Calendar Events' do
 
     day_click('#calendar', now)
 
-    click_button 'Create Calendar event'
+    click_button 'Save'
 
     within('.fc-event'){
       expect(page).to have_calendar_event(now, now + 1.hour)
@@ -47,7 +47,7 @@ feature 'Provider creates a Calendar Events' do
     # Set starts at date after ends at date
     select_date('#calendar_event_starts_at_date', now + 4.days)
 
-    click_button 'Create Calendar event'
+    click_button 'Save'
 
     expect(page).to have_text('An event must end after it starts!')
 
@@ -63,7 +63,7 @@ feature 'Provider creates a Calendar Events' do
 
     day_click('#calendar', now)
 
-    click_button 'Create Calendar event'
+    click_button 'Save'
 
     click_link 'Calendar'
 
@@ -76,7 +76,8 @@ feature 'Provider creates a Calendar Events' do
   @dttms = [
     Time.now,
     Time.now - 1.day,
-    Time.now + 1.day
+    Time.now + 1.day,
+    Time.now.beginning_of_day
   ]
 
   @dttms.each do |dttm|
@@ -91,11 +92,11 @@ feature 'Provider creates a Calendar Events' do
 
       day_click('#calendar', now)
 
-      expect(page).to have_field('Starts at date', with: now.to_formatted_date)
-      expect(page.find_field('Starts at time').value).to eq(now.to_formatted_time)
+      expect(page.find('input#calendar_event_starts_at_date').value).to eq(now.to_formatted_date)
+      expect(page.find('input#calendar_event_starts_at_time').value).to eq(now.to_formatted_time)
 
-      expect(page).to have_field('Ends at date', with: now.to_formatted_date)
-      expect(page.find_field('Ends at time').value).to eq((now + 1.hour).to_formatted_time)
+      expect(page.find('input#calendar_event_ends_at_date').value).to eq(now.to_formatted_date)
+      expect(page.find('input#calendar_event_ends_at_time').value).to eq((now + 1.hour).to_formatted_time)
 
     end
 

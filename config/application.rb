@@ -33,5 +33,8 @@ module Outpatient
     # Raise errors on unpermitted params in form submissions.
     config.action_controller.action_on_unpermitted_parameters = :raise
 
+    # Load all .yml and .rb files in config/locales for localization
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
   end
 end

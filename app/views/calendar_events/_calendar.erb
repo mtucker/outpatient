@@ -1,3 +1,11 @@
 <div id='calendar'></div>
 
-<%= render 'calendar_events/modal' %>
+<div id="new-event-modal" class="event modal">
+  <input class="modal-state" id="modal" type="checkbox"/>
+  <div id="event" class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal"></label>
+      <%= render 'calendar_events/form' %>
+    </div>
+  </div>
+</div>

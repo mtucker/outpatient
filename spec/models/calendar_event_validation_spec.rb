@@ -33,10 +33,8 @@ RSpec.describe CalendarEvent, type: :model do
 
     it 'includes errors for starts_at_date and starts_at_time for invalid starts_at' do
       calendar_event.valid?
-      expect(calendar_event.errors[:starts_at_date]).to eq(calendar_event.errors[:starts_at])
-      expect(calendar_event.errors[:starts_at_time]).to eq(calendar_event.errors[:starts_at])
-      expect(calendar_event.errors[:ends_at_date]).to eq(calendar_event.errors[:ends_at])
-      expect(calendar_event.errors[:ends_at_time]).to eq(calendar_event.errors[:ends_at])
+      expect(calendar_event.errors[:starts_at]).to eq(calendar_event.errors[:starts_at])
+      expect(calendar_event.errors[:ends_at]).to eq(calendar_event.errors[:ends_at])
     end
 
     it 'requires a user' do
