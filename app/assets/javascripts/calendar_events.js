@@ -16,6 +16,7 @@ $('#calendar').fullCalendar({
 
     $('.form-header.edit').hide();
     $('.form-header.new').show();
+    $('form[data-model="calendar_event"] a.delete').hide();
 
     $('form[data-model="calendar_event"]').attr('action', '/calendar_events/');
     $('form[data-model="calendar_event"]').attr('method', 'post');
@@ -43,6 +44,7 @@ $('#calendar').fullCalendar({
 
     $('.form-header.new').hide();
     $('.form-header.edit').show();
+    $('form[data-model="calendar_event"] a.delete').show();
 
     $('form[data-model="calendar_event"]').attr('action', '/calendar_events/' + calEvent.id);
     $('form[data-model="calendar_event"]').attr('method', 'put');
