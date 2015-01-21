@@ -40,7 +40,6 @@ group :development do
   gem 'guard-sass',       require: false
   gem 'guard-compass',    require: false
   gem 'meta_request'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'rubocop',          require: false
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -52,6 +51,10 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
+end
+
+group :test, :darwin do
+  gem 'rb-fsevent'
 end
 
 group :test do
