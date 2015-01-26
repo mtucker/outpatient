@@ -51,9 +51,11 @@ en:
   forms:
     calendar_events:
       edit:
-        title: "Edit availability for virtual visits."
+        title: "Edit availability for virtual appointments."
       calendar_event_types:
         online_appointment_availability:
           new: "Schedule availability for virtual appointments."
+        online_appointment:
+          new: "Schedule a virtual appointment."
     save: "Save"
 
