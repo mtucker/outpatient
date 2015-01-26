@@ -6,13 +6,52 @@
 
   .form-header {
 
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 
   }
 
   .form-inputs {
 
     @include outer-container();
+
+    select {
+
+      display: inline-block;
+
+    }
+
+    div.fancy-select {
+
+      margin-top: 2em;
+      margin-bottom: 2em;
+      text-transform: none;
+
+      div.trigger {
+
+        @extend h3;
+
+        background-color: transparent;
+        width: auto;
+
+      }
+
+      ul.options {
+
+        @extend h3;
+
+        background-color: $base-background-color;
+        border-top: none;
+        width: 100%;
+
+      }
+
+      li.selected {
+
+        background-color: $light-gray;
+
+      }
+
+    }
 
     .input-group {
 
