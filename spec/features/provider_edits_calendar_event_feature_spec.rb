@@ -37,7 +37,7 @@ feature 'Provider edits a Calendar Events' do
     click_button 'Save'
 
     within('.fc-event'){
-      expect(page).to have_calendar_event(now, now + 1.hour)
+      expect(page).to have_calendar_event('Available', now, now + 1.hour)
     }
 
     click_event('#calendar',now, now + 1.hour)
@@ -47,9 +47,8 @@ feature 'Provider edits a Calendar Events' do
     click_button 'Save'
 
     within('.fc-event'){
-      expect(page).not_to have_calendar_event(now, now + 1.hour)
-      expect(page).to have_calendar_event(now, now + 2.hour)
-
+      expect(page).not_to have_calendar_event('Available', now, now + 1.hour)
+      expect(page).to have_calendar_event('Available', now, now + 2.hour)
     }
 
   end

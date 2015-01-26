@@ -29,7 +29,7 @@ feature 'Provider creates a Calendar Events' do
     click_button 'Save'
 
     within('.fc-event'){
-      expect(page).to have_calendar_event(now, now + 1.hour)
+      expect(page).to have_calendar_event('Available', now, now + 1.hour)
 
     }
 
@@ -69,7 +69,7 @@ feature 'Provider creates a Calendar Events' do
     click_link 'Calendar'
 
     within('.fc-event'){
-      expect(page).to have_calendar_event(now, now + 1.hour)
+      expect(page).to have_calendar_event('Available', now, now + 1.hour)
     }
 
   end

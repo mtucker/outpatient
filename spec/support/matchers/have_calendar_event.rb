@@ -1,24 +1,25 @@
-
+3
 module Capybara
   module RSpecMatchers
     class HaveCalendarEvent < Matcher
       attr_reader :failure_message, :failure_message_when_negated
 
-      def initialize(start_dttm, end_dttm, count = nil)
-        @start_dttm = start_dttm
-        @end_dttm = end_dttm
+      def initialize(title, starts_at, ends_at, count = nil)
+        @title = title
+        @starts_at = starts_at
+        @ends_at = ends_at
         @count = count
       end
 
       def matches?(actual)
-        wrap(actual).assert_text("#{@start_dttm.strftime('%l:%M')} - #{@end_dttm.strftime('%l:%M')}", count: @count)
+        wrap(actual).assert_text("#{@starts_at.strftime('%l:%M')} - #{@ends_at.strftime('%l:%M')} #{@title}", count: @count)
       rescue Capybara::ExpectationNotMet => e
         @failure_message = e.message
         return false
       end
 
       def does_not_match?(actual)
-        wrap(actual).assert_no_text("#{@start_dttm.strftime('%l:%M')} - #{@end_dttm.strftime('%l:%M')}")
+        wrap(actual).assert_no_text("#{@starts_at.strftime('%l:%M')} - #{@ends_at.strftime('%l:%M')}")
       rescue Capybara::ExpectationNotMet => e
         @failure_message_when_negated = e.message
         return false
@@ -34,8 +35,8 @@ module Capybara
 
     end
 
-    def have_calendar_event(expected_start_dttm, expected_end_dttm, count = nil)
-      HaveCalendarEvent.new(expected_start_dttm, expected_end_dttm, count)
+    def have_calendar_event(expected_title, expected_starts_at, expected_ends_at, count = nil)
+      HaveCalendarEvent.new(expected_title, expected_starts_at, expected_ends_at, count)
     end
 
   end
