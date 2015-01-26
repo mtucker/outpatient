@@ -3,8 +3,8 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation, {except: ['public.calendar_event_types', 'public.specialities']}
   end
 
   config.before(:each) do

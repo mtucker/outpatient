@@ -8,11 +8,11 @@ feature 'Provider creates a Calendar Events' do
 
     click_link 'Calendar'
 
-    expect(page).not_to have_text('Schedule availability for virtual visits.')
+    expect(page).not_to have_text('Schedule availability for virtual appointments.')
 
-    day_click('#calendar', Time.now)
+    click_day('#calendar', Time.now)
 
-    expect(page).to have_text('Schedule availability for virtual visits.')
+    expect(page).to have_text('Schedule availability for virtual appointments.')
 
   end
 
@@ -24,12 +24,13 @@ feature 'Provider creates a Calendar Events' do
 
     now = Time.now.round_down_to_nearest_half_hour
 
-    day_click('#calendar', now)
+    click_day('#calendar', now)
 
     click_button 'Save'
 
     within('.fc-event'){
       expect(page).to have_calendar_event(now, now + 1.hour)
+
     }
 
   end
@@ -42,7 +43,7 @@ feature 'Provider creates a Calendar Events' do
 
     now = Time.now.round_down_to_nearest_half_hour
 
-    day_click('#calendar', now)
+    click_day('#calendar', now)
 
     # Set starts at date after ends at date
     select_date('#calendar_event_starts_at_date', now + 4.days)
@@ -61,7 +62,7 @@ feature 'Provider creates a Calendar Events' do
 
     now = Time.now.round_down_to_nearest_half_hour
 
-    day_click('#calendar', now)
+    click_day('#calendar', now)
 
     click_button 'Save'
 
@@ -90,7 +91,7 @@ feature 'Provider creates a Calendar Events' do
 
       now = dttm.round_down_to_nearest_half_hour
 
-      day_click('#calendar', now)
+      click_day('#calendar', now)
 
       expect(page.find('input#calendar_event_starts_at_date').value).to eq(now.to_formatted_date)
       expect(page.find('input#calendar_event_starts_at_time').value).to eq(now.to_formatted_time)

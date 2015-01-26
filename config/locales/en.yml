@@ -48,11 +48,12 @@ en:
           attributes:
             ends_at:
               after: "An event must end after it starts!"
-  views:
+  forms:
     calendar_events:
-      new:
-        title: "Schedule availability for virtual visits."
       edit:
         title: "Edit availability for virtual visits."
-      save: "Save"
+      calendar_event_types:
+        online_appointment_availability:
+          new: "Schedule availability for virtual appointments."
+    save: "Save"
 

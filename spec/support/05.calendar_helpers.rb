@@ -3,7 +3,7 @@
 module CalendarHelpers
 
   # Simulates clicking on a FullCalendar datetime
-  def day_click(calendar_selector, dttm)
+  def click_day(calendar_selector, dttm)
 
     # Convert the date to an ISO 8601 formatted string
     dttm_string = dttm.strftime('%Y-%m-%dT%H:%M:%S%z')
@@ -20,7 +20,7 @@ module CalendarHelpers
   end
 
   # Simultate clicking on a FullCalendar event
-  def event_click(calendar_selector, start_dttm, end_dttm)
+  def click_event(calendar_selector, start_dttm, end_dttm)
 
     event_dttm_range_string = "#{start_dttm.to_formatted_time} - #{end_dttm.to_formatted_time}"
 

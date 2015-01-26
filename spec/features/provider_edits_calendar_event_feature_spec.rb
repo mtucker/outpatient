@@ -10,7 +10,7 @@ feature 'Provider edits a Calendar Events' do
 
     now = Time.now.round_down_to_nearest_half_hour
 
-    day_click('#calendar', now)
+    click_day('#calendar', now)
 
     click_button 'Save'
 
@@ -18,7 +18,7 @@ feature 'Provider edits a Calendar Events' do
       expect(page).to have_calendar_event(now, now + 1.hour)
     }
 
-    event_click('#calendar',now, now + 1.hour)
+    click_event('#calendar',now, now + 1.hour)
 
     expect(page).to have_text('Edit availability for virtual visits.')
 
@@ -32,7 +32,7 @@ feature 'Provider edits a Calendar Events' do
 
     now = Time.now.round_down_to_nearest_half_hour
 
-    day_click('#calendar', now)
+    click_day('#calendar', now)
 
     click_button 'Save'
 
@@ -40,7 +40,7 @@ feature 'Provider edits a Calendar Events' do
       expect(page).to have_calendar_event(now, now + 1.hour)
     }
 
-    event_click('#calendar',now, now + 1.hour)
+    click_event('#calendar',now, now + 1.hour)
 
     select_time('#calendar_event_ends_at_time', now + 2.hour)
 
