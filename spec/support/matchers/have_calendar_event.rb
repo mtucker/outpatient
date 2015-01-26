@@ -4,13 +4,14 @@ module Capybara
     class HaveCalendarEvent < Matcher
       attr_reader :failure_message, :failure_message_when_negated
 
-      def initialize(start_dttm, end_dttm)
+      def initialize(start_dttm, end_dttm, count = nil)
         @start_dttm = start_dttm
         @end_dttm = end_dttm
+        @count = count
       end
 
       def matches?(actual)
-        wrap(actual).assert_text("#{@start_dttm.strftime('%l:%M')} - #{@end_dttm.strftime('%l:%M')}")
+        wrap(actual).assert_text("#{@start_dttm.strftime('%l:%M')} - #{@end_dttm.strftime('%l:%M')}", count: @count)
       rescue Capybara::ExpectationNotMet => e
         @failure_message = e.message
         return false
@@ -33,8 +34,8 @@ module Capybara
 
     end
 
-    def have_calendar_event(expected_start_dttm, expected_end_dttm)
-      HaveCalendarEvent.new(expected_start_dttm, expected_end_dttm)
+    def have_calendar_event(expected_start_dttm, expected_end_dttm, count = nil)
+      HaveCalendarEvent.new(expected_start_dttm, expected_end_dttm, count)
     end
 
   end
