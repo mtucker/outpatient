@@ -35,6 +35,12 @@
 
       }
 
+      select:focus + div.trigger {
+
+        box-shadow: none;
+
+      }
+
       ul.options {
 
         @extend h3;
@@ -45,9 +51,16 @@
 
       }
 
-      li.selected {
+      li {
 
-        background-color: $light-gray;
+        color: $base-font-color;
+
+        &.selected, &.hover {
+
+          color: white;
+          background-color: $accent-color;
+
+        }
 
       }
 
