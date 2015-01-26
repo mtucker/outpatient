@@ -12,8 +12,8 @@ class CalendarEvent < ActiveRecord::Base
   scope :starts_after, -> (start_dttm) { where('starts_at >= ?', "#{start_dttm}") if start_dttm.present? }
   scope :starts_before, -> (end_dttm) { where('starts_at <= ?', "#{end_dttm}") if end_dttm.present? }
 
-  def starts_at_thing
-    starts_at.in_time_zone
+  def title
+    'Available'
   end
 
   def starts_at_date

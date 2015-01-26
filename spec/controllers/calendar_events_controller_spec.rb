@@ -19,6 +19,13 @@ RSpec.describe CalendarEventsController, type: :controller do
       get :index
       expect(assigns(:calendar_events)).to eq([included_event])
     end
+
+    it 'includes title in event json' do
+      event = create(:calendar_event, user: subject.current_user, starts_at: '2014-01-01T08:00:00-0500', ends_at: '2014-01-01T09:00:00-0500')
+
+      get :index
+      expect(assigns(:calendar_events).first.title).to eq('Available')
+    end
   end
 
   describe 'GET new' do

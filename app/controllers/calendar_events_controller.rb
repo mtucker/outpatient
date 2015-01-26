@@ -14,7 +14,7 @@ class CalendarEventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @calendar_events }
+      format.json { render json: @calendar_events, methods: :title }
     end
   end
 
@@ -32,7 +32,7 @@ class CalendarEventsController < ApplicationController
     respond_to do |format|
       if @calendar_event.save
         format.html { redirect_to @calendar_event, notice: 'Calendar event was successfully created.' }
-        format.js { render json: @calendar_event, status: :created }
+        format.js { render json: @calendar_event, methods: :title, status: :created }
       else
         format.html { render :new }
         format.js { render json: @calendar_event.errors, status: :unprocessable_entity }

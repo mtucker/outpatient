@@ -82,7 +82,7 @@ $('#calendar').fullCalendar({
           $(json).each(function() {
               events.push({
                   id: $(this).attr('id'),
-                  title: 'Available',
+                  title: $(this).attr('title'),
                   start: $(this).attr('starts_at'),
                   end: $(this).attr('ends_at')
               });
