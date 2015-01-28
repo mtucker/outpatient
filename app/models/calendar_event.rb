@@ -7,13 +7,14 @@ class CalendarEvent < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :calendar_event_type
+  has_one :appointment
 
   scope :user, -> (user) { where('user_id = ?', "#{user.id}") }
   scope :starts_after, -> (start_dttm) { where('starts_at >= ?', "#{start_dttm}") if start_dttm.present? }
   scope :starts_before, -> (end_dttm) { where('starts_at <= ?', "#{end_dttm}") if end_dttm.present? }
 
   def title
-    'Available'
+    I18n.t "activerecord.display_labels.calendar_events.description.#{self.calendar_event_type.name.downcase}"
   end
 
   def starts_at_date

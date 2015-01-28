@@ -35,7 +35,7 @@ feature 'Provider creates an Appointment' do
     click_button 'Save'
 
     within('.fc-event'){
-      expect(page).to have_calendar_event('Available', now, now + 1.hour, 1)
+      expect(page).to have_calendar_event('Appointment', now, now + 1.hour, 1)
     }
 
   end
