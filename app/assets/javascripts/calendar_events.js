@@ -6,7 +6,7 @@ $('#calendar_event_starts_at_time').pickatime({format: 'h:i A'});
 $('#calendar_event_ends_at_date').pickadate({format: 'yyyy/mm/dd'});
 $('#calendar_event_ends_at_time').pickatime({format: 'h:i A'});
 
-$('#calendar_event_calendar_event_type_id').fancySelect();
+// $('#calendar_event_calendar_event_type_id').fancySelect();
 
 // Initialize a calendar and render on the page using FullCalendar
 // http://fullcalendar.io/

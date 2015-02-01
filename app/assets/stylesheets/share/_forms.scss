@@ -1,3 +1,9 @@
+select {
+
+  display: inline-block;
+
+}
+
 .solo-form {
 
   @include span-columns(4);

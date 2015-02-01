@@ -1,15 +1,7 @@
 
-<%= simple_form_for(@calendar_event, remote: true, html: {role: :form, 'data-model' => 'calendar_event'}) do |f| %>
-
+<%= simple_form_for(@calendar_event) do |f| %>
+  <%= f.association :calendar_event_type %>
   <div class="form-inputs">
-    <%= f.hidden_field :id %>
-    <div class="form-header new">
-    <%= f.association :calendar_event_type, label: false, wrapper: false, label_method: :calendar_event_type_label %>
-    </div>
-    <div class="form-header edit">
-      <h3><%= t 'forms.calendar_events.edit.title' %></h3>
-    </div>
-
     <div class="input-group">
       <div class="input">
         <%= f.input_field :starts_at_date, label: false %>
@@ -30,10 +22,6 @@
       </div>
     </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Save" %>
-    <%= link_to 'Delete', @calendar_event, :method => 'delete', confirm: 'Are you sure?', id: 'delete', class: 'delete button', remote: true %>
-  </div>
+  <%= f.button :submit, "Save" %>
 <% end %>
 
