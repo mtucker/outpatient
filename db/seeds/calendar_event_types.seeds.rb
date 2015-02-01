@@ -1,2 +1,2 @@
-CalendarEventType.find_or_create_by(name: 'ONLINE_APPOINTMENT_AVAILABILITY')
-CalendarEventType.find_or_create_by(name: 'ONLINE_APPOINTMENT')
+CalendarEventType.find_or_create_by(name: 'Availability')
+CalendarEventType.find_or_create_by(name: 'Appointment')

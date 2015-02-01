@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126153746) do
+ActiveRecord::Schema.define(version: 20150201221409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,18 +31,6 @@ ActiveRecord::Schema.define(version: 20150126153746) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "appointments", force: :cascade do |t|
-    t.integer  "calendar_event_id"
-    t.integer  "provider_id"
-    t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "appointments", ["calendar_event_id"], name: "index_appointments_on_calendar_event_id", using: :btree
-  add_index "appointments", ["provider_id"], name: "index_appointments_on_provider_id", using: :btree
-  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
-
   create_table "calendar_event_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -57,10 +45,12 @@ ActiveRecord::Schema.define(version: 20150126153746) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.string   "type"
   end
 
   add_index "calendar_events", ["calendar_event_type_id"], name: "index_calendar_events_on_calendar_event_type_id", using: :btree
   add_index "calendar_events", ["deleted_at"], name: "index_calendar_events_on_deleted_at", using: :btree
+  add_index "calendar_events", ["type"], name: "index_calendar_events_on_type", using: :btree
   add_index "calendar_events", ["user_id"], name: "index_calendar_events_on_user_id", using: :btree
 
   create_table "specialties", force: :cascade do |t|
@@ -97,7 +87,4 @@ ActiveRecord::Schema.define(version: 20150126153746) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "appointments", "calendar_events"
-  add_foreign_key "appointments", "users"
-  add_foreign_key "appointments", "users", column: "provider_id"
 end
