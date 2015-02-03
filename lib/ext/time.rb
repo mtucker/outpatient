@@ -43,4 +43,10 @@ class Time
     strftime(@@datetime_format)
   end
 
+  def self.parse_date_and_time(date_string, time_string)
+    date = Date.parse(date_string)
+    time = Time.parse(time_string)
+    Time.new(date.year, date.month, date.day, time.hour, time.min, time.sec)
+  end
+
 end
