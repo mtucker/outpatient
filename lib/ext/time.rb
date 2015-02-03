@@ -14,6 +14,21 @@ class Time
 
   def round_down_to_nearest_half_hour
     min >= 30 ? change(min: 30) : change(min: 0)
+  end  
+
+  def round_up_to_nearest_half_hour
+    min <= 30 ? change(min: 30) : change(hour: hour + 1, min: 0)
+  end  
+  
+  def round_to_nearest_half_hour
+    if(min <= 15) 
+      change(min: 0)
+    elsif(15 < min && min < 45)
+      change(min: 30)
+    elsif(min >= 45)
+      change(min: 0)
+      change(hour: hour + 1)
+    end   
   end
 
   def to_formatted_date

@@ -1,19 +1,15 @@
-
-<% if content_for?(:secondary_nav_content) %>
 <header class="secondary-navigation">
   <div class="navigation-wrapper">
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
       <%= image_tag("menu-white.png") %>
     </a>
     <div class="nav">
-      <%= yield(:secondary_nav_content) %>
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <%= content_tag :li, link_to("Dashboard", home_provider_path(3)), class: "nav-link #{css_class_active_for(home_provider_path(3))}" %>
+        <%= content_tag :li, link_to("Profile", edit_provider_path(3)), class: "nav-link #{css_class_active_for(edit_provider_path(3))}" %>
+        <%= content_tag :li, link_to("Calendar", calendar_provider_path(3)), class: "nav-link #{css_class_active_for(calendar_provider_path(3))}" %>
+      </ul>
     </div>
 
-    <% if content_for?(:secondary_nav_tools_content) %>
-      <div class="navigation-tools">      
-        <%= yield(:secondary_nav_tools_content) %>
-      </div>
-    <% end %>
   </div>
 </header>
-<% end %>

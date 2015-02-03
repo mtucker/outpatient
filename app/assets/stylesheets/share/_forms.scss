@@ -4,6 +4,24 @@ select {
 
 }
 
+fieldset {
+
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  &.inline {
+
+    input, label {
+
+      display: inline-block;
+      width: auto;
+
+    }
+
+  }
+}
+
 .solo-form {
 
   @include span-columns(4);

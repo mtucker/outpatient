@@ -1,0 +1,9 @@
+
+<%= simple_form_for(@appointment) do |f| %>
+    <%= f.input_field :starts_at_date, as: :date_picker, label: false %>
+    <%= f.input_field :starts_at_time, as: :time_picker, label: false %>
+    <%= f.label :ends_at %>
+    <%= f.input_field :ends_at_date, as: :date_picker, label: false %>
+    <%= f.input_field :ends_at_time, as: :time_picker, label: false %>
+  <%= f.button :submit, "Save" %>
+<% end %>

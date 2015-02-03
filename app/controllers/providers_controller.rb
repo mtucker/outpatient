@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider, only: [:show, :edit, :update, :destroy, :calendar]
 
   # GET /providers
   # GET /providers.json
@@ -63,15 +63,12 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/home
   def home
-    render layout: 'providers/home'
   end
 
   # GET /providers/1/calendar
   def calendar
     calendar_event_type = CalendarEventType.find_by name: 'ONLINE_APPOINTMENT_AVAILABILITY'
     @calendar_event = CalendarEvent.new(calendar_event_type: calendar_event_type)
-
-    render layout: 'providers/home'
   end
 
   private

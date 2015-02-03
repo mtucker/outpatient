@@ -13,8 +13,10 @@ class CalendarEvent < ActiveRecord::Base
   scope :starts_after, -> (start_dttm) { where('starts_at >= ?', "#{start_dttm}") if start_dttm.present? }
   scope :starts_before, -> (end_dttm) { where('starts_at <= ?', "#{end_dttm}") if end_dttm.present? }
 
+  after_initialize :init
+
   def title
-    I18n.t "activerecord.display_labels.calendar_events.description.#{self.calendar_event_type.name.downcase}"
+    I18n.t "activerecord.display_labels.calendar_events.description.#{type}"
   end
 
   def starts_at_date
@@ -55,6 +57,11 @@ class CalendarEvent < ActiveRecord::Base
     ends_at_time = Time.zone.parse(ends_at_time) if ends_at_time.is_a? String
     self.ends_at = Time.zone.now.beginning_of_day unless ends_at.present?
     self.ends_at = ends_at.change_time(ends_at_time)
+  end
+
+  def init 
+    self.starts_at = Time.zone.now.round_up_to_nearest_half_hour
+    self.ends_at = self.starts_at + 1.hour
   end
 
 end

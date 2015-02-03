@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  appointments:
+    create_new: 'Schedule a new appointment'
   activerecord:
     errors:
       models:

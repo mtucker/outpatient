@@ -7,7 +7,7 @@ Rails.application.routes.draw do
              path_names: { sign_up: 'register' }
   devise_for :administrators
 
-  resources :administrators, :calendar_events
+  resources :administrators, :calendar_events, :appointments
 
   resources :providers do
     member do
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'calendar'
     end
     resources :calendar_events
+    resources :appointments
   end
 
   ActiveAdmin.routes(self)
