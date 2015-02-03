@@ -26,6 +26,10 @@ $('#calendar').fullCalendar({
           callback(events);
       }
     });
+  },
+  eventRender: function(event, element) {
+    element.attr('data-starts-at', new moment(event.start).format());
+    element.attr('data-ends-at', new moment(event.end).format());
   }
 });
 
