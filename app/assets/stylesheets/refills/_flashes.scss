@@ -1,15 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////////////
-$alert-color: #FFF6BF !default;
-$error-color: #FBE3E4 !default;
-$success-color: #E6EFC2;
-$notice-color: #E5EDF8 !default;
 $base-spacing: 1.5em !default;
 //////////////////////////////////////////////////////////////////////////////////
 
 @mixin flash($color) {
   -webkit-font-smoothing: antialiased;
-  background: $color;
-  color: darken($color, 60);
+  background: lighten($color, 60);
+  color: $color; 
   display: block;
   font-weight: bold;
   margin-bottom: $base-spacing / 2;

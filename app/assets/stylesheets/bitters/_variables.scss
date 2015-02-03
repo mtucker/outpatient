@@ -34,7 +34,10 @@ $light-green: #E6EFC2;
 $light-blue: #E5EDF8;
 $orange: #FE9A2E;
 $dark-orange: darken($orange, 20);
-$red: #E84B3A;
+$yellow: #8C7800; 
+$red: #96151B; 
+$blue: #244E87; 
+$green: #56651A; 
 
 // Background Color
 $base-background-color: $secondary-text-on-dark-color;
@@ -63,10 +66,10 @@ $hover-delete-button-color: darken($delete-button-color, 25%);
 $base-border-color: $light-gray;
 
 // Flash Colors
-$alert-color: $light-yellow;
-$error-color: $light-red;
-$notice-color: $light-blue;
-$success-color: $light-green;
+$alert-color: $yellow;
+$error-color: $red;
+$notice-color: $blue;
+$success-color: $green;
 
 // Forms
 $form-border-color: $base-border-color;
