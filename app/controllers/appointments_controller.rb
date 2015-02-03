@@ -12,9 +12,10 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params.merge(user_id: current_user.id))
 
     if @appointment.save
-      redirect_to calendar_provider_path(@appointment.user), notice: 'The appointment was successfully saved.'
+      redirect_to calendar_provider_path(@appointment.user), notice: 'Your appointment was successfully saved.'
     else
-      render :new, error: 'There was an error saving your appointment'
+      flash.alert = 'There was an error saving your appointment.'
+      render :new 
     end      
   end 
 
