@@ -5,9 +5,9 @@
     </a>
     <div class="nav">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <%= content_tag :li, link_to("Dashboard", home_provider_path(3)), class: "nav-link #{css_class_active_for(home_provider_path(3))}" %>
-        <%= content_tag :li, link_to("Profile", edit_provider_path(3)), class: "nav-link #{css_class_active_for(edit_provider_path(3))}" %>
-        <%= content_tag :li, link_to("Calendar", calendar_provider_path(3)), class: "nav-link #{css_class_active_for(calendar_provider_path(3))}" %>
+        <%= content_tag :li, link_to("Dashboard", home_provider_path(current_user)), class: "nav-link #{css_class_active_for(home_provider_path(current_user))}" %>
+        <%= content_tag :li, link_to("Profile", edit_provider_path(current_user)), class: "nav-link #{css_class_active_for(edit_provider_path(current_user))}" %>
+        <%= content_tag :li, link_to("Calendar", calendar_provider_path(current_user)), class: "nav-link #{css_class_active_for(calendar_provider_path(current_user))}" %>
       </ul>
     </div>
 
