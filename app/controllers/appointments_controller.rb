@@ -4,6 +4,8 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @appointment.starts_at = Time.zone.now.round_up_to_nearest_half_hour
+    @appointment.ends_at = @appointment.starts_at + 1.hour
   end
 
   def create
