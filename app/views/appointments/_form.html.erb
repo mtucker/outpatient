@@ -1,9 +1,24 @@
 
 <%= simple_form_for(@appointment) do |f| %>
-    <%= f.input_field :starts_at_date, as: :date_picker, label: false %>
-    <%= f.input_field :starts_at_time, as: :time_picker, label: false %>
-    <%= f.label :ends_at %>
-    <%= f.input_field :ends_at_date, as: :date_picker, label: false %>
-    <%= f.input_field :ends_at_time, as: :time_picker, label: false %>
+    <div class="input-group inline">
+      <%= f.label :starts_at %>
+      <div class="input">
+        <%= f.input_field :starts_at_date, as: :date_picker %>
+      </div>
+      <div class="input">
+        <%= f.input_field :starts_at_time, as: :time_picker %>
+      </div>
+      <%= f.error :starts_at %>
+    </div>
+    <div class="input-group inline">
+      <%= f.label :ends_at %>
+      <div class="input">
+        <%= f.input_field :ends_at_date, as: :date_picker %>
+      </div>
+      <div class="input">
+        <%= f.input_field :ends_at_time, as: :time_picker %>
+      </div>
+      <%= f.error :ends_at %>
+    </div>
   <%= f.button :submit, "Save" %>
 <% end %>

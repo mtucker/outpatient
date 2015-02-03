@@ -1,25 +1,51 @@
-select {
+form {
 
-  display: inline-block;
+  .input-group {
 
-}
+    @include outer-container;
 
-fieldset {
+    margin-bottom: 1em;
 
-  background: transparent;
-  border: none;
-  padding: 0;
+    input {
 
-  &.inline {
+      margin-bottom: 0;
+      
+    }
+  
+    &.inline {
 
-    input, label {
+      label {
 
-      display: inline-block;
-      width: auto;
+        @include span-columns(12);
+
+      }
+
+      .input {
+
+        @include span-columns(3);
+        
+      }
 
     }
 
   }
+  
+  .error {
+
+    @include span-columns(3);
+
+    color: $error-color;
+
+  }
+
+  .field_with_errors {
+
+    input, select {
+      background-color: $light-red;
+    }
+
+  }
+  
 }
 
 .solo-form {
@@ -46,19 +72,5 @@ fieldset {
     text-align: center;
     line-height: $base-line-height * 1.5;
   }
-
-}
-
-.field_with_errors {
-  input, select {
-    border-width: 3px;
-    border-color: $form-border-color-focus;
-    box-shadow: $form-box-shadow-focus;
-  }
-}
-
-.picker {
-  
-  position: fixed
 
 }
