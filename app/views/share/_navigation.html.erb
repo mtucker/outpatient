@@ -1,2 +1,4 @@
 <%= render "share/primary_navigation" %>
+<% if user_signed_in? %>
 <%= render "share/secondary_navigation" %>
+<% end %>
