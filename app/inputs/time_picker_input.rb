@@ -6,7 +6,7 @@ class TimePickerInput < SimpleForm::Inputs::DateTimeInput
   def input_html_options
     { 
       value: @builder.object.send(attribute_name).to_formatted_time, 
-      class: 'timepicker'
+      class: 'time_picker'
     }
   end
 end
