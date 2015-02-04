@@ -52,11 +52,12 @@ en:
           attributes:
             ends_at:
               after: "An event must end after it starts!"
-    display_labels:
-      calendar_events:
-        description:
-          online_appointment_availability: "Available"
-          online_appointment: "Appointment"
+    calendar_events:
+      title: "Calendar Event"
+    availabilities:
+      title: "Available"
+    appointment:
+      title: "Appointment"
   forms:
     calendar_events:
       edit:

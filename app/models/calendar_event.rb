@@ -14,7 +14,7 @@ class CalendarEvent < ActiveRecord::Base
   scope :starts_before, -> (end_dttm) { where('starts_at <= ?', "#{end_dttm}") if end_dttm.present? }
 
   def title
-    I18n.t "activerecord.display_labels.calendar_events.description.#{type}"
+    I18n.t 'activerecord.calendar_events.title'
   end
 
   def starts_at_date

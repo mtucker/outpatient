@@ -67,8 +67,6 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/calendar
   def calendar
-    calendar_event_type = CalendarEventType.find_by name: 'ONLINE_APPOINTMENT_AVAILABILITY'
-    @calendar_event = CalendarEvent.new(calendar_event_type: calendar_event_type)
   end
 
   private
