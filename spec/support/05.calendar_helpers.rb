@@ -58,4 +58,18 @@ module CalendarHelpers
 
   end
 
+  def create_appointment(starts_at, ends_at)
+  
+    click_link 'Calendar'
+    click_link 'Create Appointment'
+  
+    select_date('#appointment_starts_at_date', starts_at)
+    select_time('#appointment_starts_at_time', starts_at)
+    select_date('#appointment_ends_at_date', ends_at)
+    select_time('#appointment_ends_at_time', ends_at)
+    
+    click_button 'Save'
+    
+  end
+
 end

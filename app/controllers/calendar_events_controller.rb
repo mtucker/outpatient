@@ -14,7 +14,7 @@ class CalendarEventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @calendar_events, methods: :title }
+      format.json { render json: @calendar_events, methods: [:title, :type] }
     end
   end
 
@@ -38,6 +38,16 @@ class CalendarEventsController < ApplicationController
         format.js { render json: @calendar_event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+
+    if @calendar_event.type = 'Appointment'
+      redirect_to "/appointments/#{@calendar_event.id}/edit"
+    elsif @calendar_event.type = 'Availability'
+      redirect_to "/availabilties/#{@calendar_event.id}/edit"
+    end
+    
   end
 
   # PATCH/PUT /calendar_events/1

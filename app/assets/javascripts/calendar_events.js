@@ -20,7 +20,8 @@ $('#calendar').fullCalendar({
                   id: $(this).attr('id'),
                   title: $(this).attr('title'),
                   start: $(this).attr('starts_at'),
-                  end: $(this).attr('ends_at')
+                  end: $(this).attr('ends_at'),
+                  type: $(this).attr('type')
               });
           });
           callback(events);
@@ -30,7 +31,13 @@ $('#calendar').fullCalendar({
   eventRender: function(event, element) {
     element.attr('data-starts-at', new moment(event.start).format());
     element.attr('data-ends-at', new moment(event.end).format());
+  },
+  eventClick: function(calEvent, jsEvent, view) {
+
+    window.location = '/calendar_events/' + calEvent.id + '/edit';
+    
   }
+  
 });
 
 
