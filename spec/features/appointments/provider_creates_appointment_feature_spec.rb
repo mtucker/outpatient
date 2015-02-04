@@ -57,7 +57,7 @@ feature 'provider creating an appointment' do
 
     click_button 'Save'
 
-    expect(page).to have_text('The appointment was successfully saved.')
+    expect(page).to have_text('Your appointment was successfully saved.')
     expect(page).to have_calendar_event('Appointment', starts_at, ends_at, 1)
 
   end

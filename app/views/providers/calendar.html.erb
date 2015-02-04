@@ -1,5 +1,5 @@
 <div id="calendar-tools">
-  <%= link_to "Create Availability", new_calendar_event_path, :class => "button", :method => :get  %>
+  <%= link_to "Create Availability", new_provider_availability_path(current_user.id), :class => "button", :method => :get  %>
   <%= link_to "Create Appointment", new_provider_appointment_path(@provider.id), :class => "button", :method => :get  %>
 </div>
 <div id="calendar-container"> 

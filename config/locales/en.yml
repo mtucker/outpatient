@@ -22,6 +22,8 @@
 en:
   appointments:
     create_new: 'Schedule a new appointment'
+  availabilities:
+    create_new: 'Schedule availability'
   activerecord:
     errors:
       models:
