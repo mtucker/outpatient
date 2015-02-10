@@ -1,7 +1,7 @@
 class Availability < CalendarEvent 
 
   def title
-    I18n.t 'activerecord.availabilities.title'
+    I18n.t 'availabilities.title'
   end
 
 end

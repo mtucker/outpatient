@@ -1,7 +1,7 @@
-class AppointmentsController < ApplicationController
+class AppointmentsController < CalendarEventsController
 
   before_filter :authenticate_user!
-  before_action :set_appointment, only: [:edit, :update]
+  before_action :set_appointment, only: [:edit, :update, :destroy]
 
   def new
     @appointment = Appointment.new
@@ -21,21 +21,23 @@ class AppointmentsController < ApplicationController
   end 
 
   def edit
+    
   end
 
-  # PATCH/PUT /appointments/1
-  # PATCH/PUT /appointments/1.json
   def update
-    respond_to do |format|
-      if @appointment.update(appointment_params)
-        format.html { redirect_to calendar_provider_path(@appointment.user), notice: 'Your appointment was successfully updated.' }
-        format.json { render json: @appointment, status: :ok }
-      else
-        format.html { render :edit }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
-      end
+    if @appointment.update(appointment_params)
+      redirect_to calendar_provider_path(@appointment.user), notice: 'Your appointment was successfully updated.'
+    else
+      render :edit
     end
   end
+  
+  def destroy
+    @appointment.destroy
+    redirect_to calendar_provider_path(@appointment.user), notice: 'The appointment was successfully deleted.'
+  end
+
+  private
   
   # Use callbacks to share common setup or constraints between actions.
   def set_appointment
@@ -45,4 +47,5 @@ class AppointmentsController < ApplicationController
   def appointment_params
       params.require(:appointment).permit(:id, :starts_at, :ends_at, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time)
   end
+  
 end

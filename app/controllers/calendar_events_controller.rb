@@ -18,60 +18,21 @@ class CalendarEventsController < ApplicationController
     end
   end
 
-  def new
-    @calendar_event = CalendarEvent.new
-  end
-
-  def create
-    @calendar_event = CalendarEvent.new(calendar_event_params)
-
-    unless @calendar_event.user
-      @calendar_event.user = current_user
-    end
-
-    respond_to do |format|
-      if @calendar_event.save
-        format.html { redirect_to @calendar_event, notice: 'Calendar event was successfully created.' }
-        format.js { render json: @calendar_event, methods: :title, status: :created }
-      else
-        format.html { render :new }
-        format.js { render json: @calendar_event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def edit
-
-    if @calendar_event.type = 'Appointment'
-      redirect_to "/appointments/#{@calendar_event.id}/edit"
-    elsif @calendar_event.type = 'Availability'
-      redirect_to "/availabilties/#{@calendar_event.id}/edit"
-    end
-    
+    redirect_to controller: @calendar_event.type.downcase.pluralize, action: :edit
   end
 
-  # PATCH/PUT /calendar_events/1
-  # PATCH/PUT /calendar_events/1.json
   def update
-    respond_to do |format|
-      if @calendar_event.update(calendar_event_params)
-        format.html { redirect_to @calendar_event, notice: 'CalendarEvent was successfully updated.' }
-        format.json { render json: @calendar_event, status: :ok }
-      else
-        format.html { render :edit }
-        format.json { render json: @calendar_event.errors, status: :unprocessable_entity }
-      end
+    if @calendar_event.update(calendar_event_params)
+      redirect_to @calendar_event, notice: 'CalendarEvent was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /calendar_events/1
-  # DELETE /calendar_events/1.json
   def destroy
     @calendar_event.destroy
-    respond_to do |format|
-      format.html { redirect_to calendar_event_url, notice: 'CalendarEventsController was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to calendar_event_url, notice: 'CalendarEventsController was successfully destroyed.'
   end
 
   private

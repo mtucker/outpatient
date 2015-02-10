@@ -1,6 +1,7 @@
-class AvailabilitiesController < ApplicationController
+class AvailabilitiesController < CalendarEventsController
 
   before_filter :authenticate_user!
+  before_action :set_availability, only: [:edit, :update, :destroy]
 
   def new
     @availability = Availability.new
@@ -19,7 +20,23 @@ class AvailabilitiesController < ApplicationController
     end      
   end 
 
+  def edit
+
+  end
+
   def availability_params
       params.require(:availability).permit(:id, :starts_at, :ends_at, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time)
   end
+  
+  private
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_availability
+    @availability = Availability.find(params[:id])
+  end
+
+  def availability_params
+      params.require(:availability).permit(:id, :starts_at, :ends_at, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time)
+  end
+  
 end

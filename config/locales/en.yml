@@ -21,10 +21,13 @@
 
 en:
   appointments:
-    create_new: 'Schedule a new appointment'
-    edit: 'Edit this appointment'
+    title: "Appointment"
+    create_new: "Schedule a new appointment"
+    edit: "Edit this appointment"
   availabilities:
-    create_new: 'Schedule availability'
+    title: "Available"
+    create_new: "Schedule availability"
+    edit: "Edit this availability"
   activerecord:
     errors:
       models:
@@ -55,10 +58,6 @@ en:
               after: "An event must end after it starts!"
     calendar_events:
       title: "Calendar Event"
-    availabilities:
-      title: "Available"
-    appointment:
-      title: "Appointment"
   forms:
     calendar_events:
       edit:

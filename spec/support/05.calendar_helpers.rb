@@ -34,6 +34,15 @@ module CalendarHelpers
 
   end
 
+  def fill_in_calendar_event_form(calendar_event)
+
+    select_date("##{calendar_event.type.downcase}_starts_at_date", calendar_event.starts_at_date)
+    select_time("##{calendar_event.type.downcase}_starts_at_time", calendar_event.starts_at_time)
+    select_date("##{calendar_event.type.downcase}_ends_at_date", calendar_event.ends_at_date)
+    select_time("##{calendar_event.type.downcase}_ends_at_time", calendar_event.ends_at_time)
+
+  end
+
   def select_date(date_picker_selector, date)
 
     date_string = date.strftime('%Y/%m/%d')

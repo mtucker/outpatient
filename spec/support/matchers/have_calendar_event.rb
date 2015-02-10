@@ -18,7 +18,7 @@ module Capybara
       end
 
       def does_not_match?(actual)
-        wrap(actual).assert_no_selector("a[data-starts-at='#{@starts_at.iso8601}'][data-ends-at='#{@ends_at.iso8601}']", count: @count)
+        wrap(actual).assert_no_selector("a[data-starts-at='#{@starts_at.iso8601}'][data-ends-at='#{@ends_at.iso8601}']")
       rescue Capybara::ExpectationNotMet => e
         @failure_message_when_negated = e.message
         return false

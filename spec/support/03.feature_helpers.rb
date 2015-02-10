@@ -3,12 +3,16 @@ module FeatureHelpers
     admin = create(:administrator)
 
     sign_in_user(admin)
+
+    admin
   end
 
   def provider_signs_in
     provider = create(:provider)
 
     sign_in_user(provider)
+    
+    provider
   end
 
   def sign_in_user(user)

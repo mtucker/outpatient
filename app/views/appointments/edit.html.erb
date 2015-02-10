@@ -1,4 +1,5 @@
 <div class="flex-box">
   <h2><%= I18n.t 'appointments.edit' %></h2>
   <%= render 'form' %>
+  <%= link_to 'Delete', @appointment, method: :delete %>
 </div>
