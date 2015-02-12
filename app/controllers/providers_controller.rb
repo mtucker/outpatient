@@ -38,16 +38,11 @@ class ProvidersController < ApplicationController
   end
 
   # PATCH/PUT /providers/1
-  # PATCH/PUT /providers/1.json
   def update
-    respond_to do |format|
-      if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
-        format.json { render :show, status: :ok, location: @provider }
-      else
-        format.html { render :edit }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
+    if @provider.update(provider_params)
+      redirect_to edit_provider_path(@provider), notice: 'Your account was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -78,6 +73,6 @@ class ProvidersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def provider_params
-    params.require(:provider).permit(:name, :email, :password, :password_confirmation, :zip_code, :phone)
+    params.require(:provider).permit(:name, :email, :password, :password_confirmation, :zip_code, :phone, :specialty_id)
   end
 end

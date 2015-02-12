@@ -7,7 +7,7 @@
       <ul id="js-navigation-menu" class="navigation-menu show">
         <%= content_tag :li, link_to("Appointments", provider_appointments_path(current_user)), class: "nav-link #{css_class_active_for(provider_appointments_path(current_user))}" %>
         <%= content_tag :li, link_to("Calendar", calendar_provider_path(current_user)), class: "nav-link #{css_class_active_for(calendar_provider_path(current_user))}" %>
-        <%= content_tag :li, link_to("Profile", edit_provider_path(current_user)), class: "nav-link #{css_class_active_for(edit_provider_path(current_user))}" %>
+        <%= content_tag :li, link_to("My Account", edit_provider_path(current_user)), class: "nav-link #{css_class_active_for(edit_provider_path(current_user))}" %>
       </ul>
     </div>
 

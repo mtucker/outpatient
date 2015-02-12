@@ -1,17 +1,9 @@
-<%= form_for(@provider) do |f| %>
-  <% if @provider.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+<%= simple_form_for(@provider) do |f| %>
+  <%= f.input :name, placeholder: "Your full name.", label: false %>
+  <%= f.input :email, placeholder: "Your email address.", label: false %>
+  <%= f.input :zip_code, placeholder: "Zip code of your practice.", label: false %>
+  <%= f.input :phone, placeholder: "Your phone number.", label: false %>
+  <%= f.association :specialty, placeholder: "Choose your specialty.", label: false, :value_method => :id %>
+  <%= f.button :submit, "Save" %>
 
-      <ul>
-      <% @provider.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
