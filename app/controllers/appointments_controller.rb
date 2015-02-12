@@ -3,6 +3,12 @@ class AppointmentsController < CalendarEventsController
   before_filter :authenticate_user!
   before_action :set_appointment, only: [:edit, :update, :destroy]
 
+  def index 
+    @appointments = Appointment.user(current_user)
+      .starts_after(Time.zone.now)
+      .starts_before(Time.zone.now + 1.week)
+  end
+  
   def new
     @appointment = Appointment.new
     @appointment.starts_at = Time.zone.now.round_up_to_nearest_half_hour

@@ -1,0 +1,21 @@
+<div class="flex-box flex-box-big">
+  <h2>Upcoming Appointments</h2>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Patient</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.starts_at.to_formatted_s(:long_ordinal) %> 
+        <td></td>
+        <td><button>Start</button>&nbsp;<button>Cancel</button></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
